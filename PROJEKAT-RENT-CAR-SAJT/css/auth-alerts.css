@@ -1,0 +1,147 @@
+/**
+ * Stilizovane poruke za autentifikaciju
+ * Koristi se za prikazivanje poruka o greškama i uspešnim akcijama pri registraciji i prijavi
+ */
+
+.auth-alerts-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    pointer-events: none;
+}
+
+.auth-alert {
+    background-color: var(--nav-scrolled-bg);
+    color: var(--text-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    transform: translateX(30px);
+    animation: slideIn 0.3s forwards;
+    pointer-events: auto;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-alert::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.auth-alert::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-light);
+    animation: countdown 5s linear forwards;
+}
+
+.auth-alert-success {
+    background-color: #10B981;
+    border-left: 5px solid #059669;
+}
+
+.auth-alert-error {
+    background-color: #EF4444;
+    border-left: 5px solid #B91C1C;
+}
+
+.auth-alert-warning {
+    background-color: #F59E0B;
+    border-left: 5px solid #D97706;
+}
+
+.auth-alert-icon {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-alert-content {
+    flex: 1;
+}
+
+.auth-alert-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.auth-alert-message {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.auth-alert-close {
+    background: none;
+    border: none;
+    color: var(--text-white);
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    padding: 0;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-alert-close:hover {
+    opacity: 1;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+}
+
+@keyframes countdown {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}
+
+.auth-alert.closing {
+    animation: slideOut 0.3s forwards;
+}

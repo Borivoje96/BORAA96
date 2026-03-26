@@ -1,0 +1,200 @@
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    overflow: hidden;
+    background-color: var(--primary-dark);
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(26, 54, 93, 0.95) 0%,
+        rgba(44, 82, 130, 0.85) 100%
+    );
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    color: var(--text-white);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--spacing-lg);
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hero Features */
+.hero-features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px 0;
+    gap: 20px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-features .feature {
+    display: flex;
+    align-items: center;
+    background-color: rgba(66, 153, 225, 0.9); /* primary-light sa transparencijom */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 250px;
+    justify-content: center;
+    border-left: 4px solid #1A365D; /* primary-dark */
+}
+
+.hero-features .feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    background-color: rgba(66, 153, 225, 1); /* primary-light bez transparencije */
+}
+
+.hero-features .feature i {
+    font-size: 1.4rem;
+    margin-right: 12px;
+    color: white;
+}
+
+.hero-features .feature span {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+/* Responsivnost za hero features */
+@media (max-width: 992px) {
+    .hero-features {
+        gap: 15px;
+    }
+    
+    .hero-features .feature {
+        min-width: 220px;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-features {
+        flex-direction: column;
+        align-items: center;
+        max-width: 400px;
+    }
+    
+    .hero-features .feature {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 15px 20px;
+    }
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-buttons .btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    min-width: 200px;
+    transition: all var(--transition-normal);
+}
+
+.btn-primary {
+    background-color: var(--primary-light);
+    border: 2px solid var(--primary-light);
+    color: var(--text-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid var(--primary-light);
+    color: var(--text-white);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-light);
+    color: var(--text-white);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 600px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+}

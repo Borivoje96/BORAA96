@@ -1,0 +1,79 @@
+/**
+ * CSS za sistem obaveštenja
+ * Koristi boje definisane u variables.css
+ */
+
+.notifications-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+}
+
+.notification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: var(--nav-scrolled-shadow);
+    color: var(--text-white);
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
+    min-width: 300px;
+    max-width: 100%;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notification.hide {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.notification-success {
+    background-color: var(--primary-light); /* #4299E1 */
+}
+
+.notification-error {
+    background-color: var(--nav-scrolled-bg); /* #1e40af */
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.notification-icon {
+    font-size: 20px;
+}
+
+.notification-message {
+    font-weight: 500;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: var(--text-white);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.notification-close:hover {
+    opacity: 1;
+}

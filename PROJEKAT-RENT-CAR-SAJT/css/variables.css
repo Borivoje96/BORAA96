@@ -1,0 +1,45 @@
+:root {
+  /* Colors from our blue palette */
+  --primary-color: #2C5282;
+  --primary-light: #4299E1;
+  --primary-dark: #1A365D;
+  
+  /* Background colors */
+  --bg-white: #ffffff;
+  --bg-gray: #f8f9fa;
+  
+  /* Text colors */
+  --text-white: #ffffff;
+  --text-dark: #2d3748;
+  --text-gray: #718096;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Border Radius */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
+  
+  /* Container */
+  --container-max-width: 1200px;
+  --container-padding: 1rem;
+  
+  /* Transitions */
+  --transition-normal: 0.3s ease;
+  
+  /* Box Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  
+  /* Z-index layers */
+  --z-navbar: 1000;
+  --z-modal: 2000;
+  --z-notifications: 3000;
+}
