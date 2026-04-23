@@ -1,0 +1,32 @@
+/* ===================== RESPONSIVE ===================== */
+@media (max-width:1100px) {
+    .advantages-grid { grid-template-columns:repeat(2,1fr); }
+    .footer-grid { grid-template-columns:1fr 1fr; gap:40px; }
+}
+@media (max-width:900px) {
+    nav { padding:16px 24px; }
+    nav.scrolled { padding:12px 24px; }
+    .nav-links, .nav-cta { display:none; }
+    .hamburger { display:flex; }
+    .container { padding:0 24px; }
+    .hero-content { padding:0 24px; }
+    .cars-grid { grid-template-columns: repeat(2,1fr); }
+    .services-grid { grid-template-columns:1fr; }
+    .contact-grid { grid-template-columns:1fr; }
+    .form-row { grid-template-columns:1fr; }
+}
+@media (max-width:640px) {
+    .hero-title { font-size: 3.5rem; }
+    .hero-features { flex-direction:column; gap:16px; }
+    .hero-buttons { flex-direction:column; }
+    .btn { justify-content:center; }
+    .cars-grid { grid-template-columns:1fr; }
+    .advantages-grid { grid-template-columns:1fr; }
+    .stats-container { grid-template-columns:1fr; }
+    .stat-item+.stat-item { border-left:none; border-top:1px solid var(--glass-border); }
+    .footer-grid { grid-template-columns:1fr; }
+    .footer-bottom { flex-direction:column; gap:12px; text-align:center; }
+    .contact-form-wrap { padding:28px 20px; }
+    section { padding:80px 0; }
+    .service-card { flex-direction:column; }
+}

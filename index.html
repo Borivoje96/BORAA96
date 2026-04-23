@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium RentCar – Vozite Luksuzno</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="css/base.css?v=2">
+    <link rel="stylesheet" href="css/navbar.css?v=2">
+    <link rel="stylesheet" href="css/hero.css?v=2">
+    <link rel="stylesheet" href="css/sections.css?v=2">
+    <link rel="stylesheet" href="css/footer.css?v=2">
+    <link rel="stylesheet" href="css/modal.css?v=2">
+    <link rel="stylesheet" href="css/responsive.css?v=2">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
+    <a href="#hero" onclick="closeMobile()">Početna</a>
+    <a href="#why-us" onclick="closeMobile()">O Nama</a>
+    <a href="#cars" onclick="closeMobile()">Vozila</a>
+    <a href="#services" onclick="closeMobile()">Usluge</a>
+    <a href="#contact" onclick="closeMobile()">Kontakt</a>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+    <a href="#hero" class="nav-logo">Premium<span>/</span>RC</a>
+    <ul class="nav-links">
+        <li><a href="#hero">Početna</a></li>
+        <li><a href="#why-us">O Nama</a></li>
+        <li><a href="#cars">Vozila</a></li>
+        <li><a href="#services">Usluge</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+        <li id="authNavItem"><a href="javascript:void(0)" onclick="openAuthModal()"><i class="fas fa-sign-in-alt"></i> Prijava</a></li>
+        <li><a href="#cars" class="nav-cta">Rezerviši</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+    <canvas id="three-canvas"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-tag">
+            <i class="fas fa-star"></i>
+            Premium Rent-a-Car Kragujevac
+        </div>
+        <h1 class="hero-title">
+            <span class="line1">Vozite</span>
+            <span class="line2">Luksuzno</span>
+        </h1>
+        <p class="hero-sub">
+            Iznajmite premium vozila za nezaboravno iskustvo. Naša flota luksuznih automobila čeka na Vas.
+        </p>
+        <div class="hero-features">
+            <div class="hf-item"><i class="fas fa-car-alt"></i> Najnoviji Modeli</div>
+            <div class="hf-item"><i class="fas fa-shield-alt"></i> Potpuno Osiguranje</div>
+            <div class="hf-item"><i class="fas fa-headset"></i> 24/7 Podrška</div>
+        </div>
+        <div class="hero-buttons">
+            <a href="#cars" class="btn btn-primary">
+                <i class="fas fa-car"></i> Pogledaj Vozila
+            </a>
+            <a href="#contact" class="btn btn-outline">
+                <i class="fas fa-phone"></i> Kontaktiraj Nas
+            </a>
+        </div>
+    </div>
+    <div class="scroll-hint">
+        <i class="fas fa-chevron-down"></i>
+        <span>Skroluj</span>
+    </div>
+</section>
+
+<!-- WHY US -->
+<section id="why-us">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-badge">● Zašto Mi</div>
+            <h2>Zašto Izabrati Nas?</h2>
+            <p>Više od 15 godina pružamo premium usluge iznajmljivanja vozila</p>
+        </div>
+        <div class="advantages-grid">
+            <div class="advantage-card reveal reveal-delay-1">
+                <div class="advantage-icon"><i class="fas fa-medal"></i></div>
+                <h3>Premium Vozila</h3>
+                <p>Naša flota se sastoji isključivo od vozila premium klase, redovno održavanih i servisiranih.</p>
+            </div>
+            <div class="advantage-card reveal reveal-delay-2">
+                <div class="advantage-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Potpuno Osiguranje</h3>
+                <p>Sva naša vozila su potpuno osigurana, pružajući vam bezbrižnost tokom vožnje.</p>
+            </div>
+            <div class="advantage-card reveal reveal-delay-3">
+                <div class="advantage-icon"><i class="fas fa-headset"></i></div>
+                <h3>24/7 Podrška</h3>
+                <p>Naš tim je dostupan 24/7 za sve vaše potrebe i hitne slučajeve.</p>
+            </div>
+            <div class="advantage-card reveal reveal-delay-4">
+                <div class="advantage-icon"><i class="fas fa-wallet"></i></div>
+                <h3>Transparentne Cene</h3>
+                <p>Bez skrivenih troškova. Sve cene su jasno definisane i konkurentne.</p>
+            </div>
+        </div>
+        <div class="stats-container reveal">
+            <div class="stat-item">
+                <div class="stat-number" data-target="15">0</div>
+                <div class="stat-label">Godina Iskustva</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="50">0</div>
+                <div class="stat-label">Premium Vozila</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="1000">0</div>
+                <div class="stat-label">Zadovoljnih Klijenata</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CARS -->
+<section id="cars">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-badge">● Naša Flota</div>
+            <h2>Naša Vozila</h2>
+            <p>Izaberite iz naše premium kolekcije vozila i doživite vrhunsku udobnost i performanse</p>
+        </div>
+        <div class="filter-container reveal">
+            <button class="filter-btn active" data-filter="all">Sva Vozila</button>
+            <button class="filter-btn" data-filter="luksuzni">Luksuzna</button>
+            <button class="filter-btn" data-filter="sportski">Sportska</button>
+            <button class="filter-btn" data-filter="suv">SUV</button>
+        </div>
+        <div class="cars-grid" id="carsGrid">
+            <!-- Cars injected by JS -->
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-badge">● Šta Nudimo</div>
+            <h2>Naše Usluge</h2>
+            <p>Kompletna usluga iznajmljivanja vozila prilagođena vašim potrebama</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal reveal-delay-1">
+                <div class="service-icon"><i class="fas fa-calendar-alt"></i></div>
+                <div class="service-text">
+                    <h3>Dugoročni Najam</h3>
+                    <p>Posebne cene i uslovi za dugoročni najam vozila. Idealno za poslovne klijente i duža putovanja.</p>
+                </div>
+            </div>
+            <div class="service-card reveal reveal-delay-2">
+                <div class="service-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <div class="service-text">
+                    <h3>Dostava Vozila</h3>
+                    <p>Besplatna dostava vozila na željenu adresu u gradu. Takođe vršimo dostavu na aerodrom.</p>
+                </div>
+            </div>
+            <div class="service-card reveal reveal-delay-3">
+                <div class="service-icon"><i class="fas fa-clipboard-check"></i></div>
+                <div class="service-text">
+                    <h3>Premium Osiguranje</h3>
+                    <p>Sveobuhvatno osiguranje vozila sa 0% učešća u šteti. Potpuna bezbrižnost tokom vožnje.</p>
+                </div>
+            </div>
+            <div class="service-card reveal reveal-delay-4">
+                <div class="service-icon"><i class="fas fa-headset"></i></div>
+                <div class="service-text">
+                    <h3>24/7 Podrška</h3>
+                    <p>Profesionalna podrška dostupna non-stop. Pomoć na putu i tehnička asistencija u bilo koje vreme.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-badge">● Kontakt</div>
+            <h2>Kontaktirajte Nas</h2>
+            <p>Tu smo da odgovorimo na sva vaša pitanja</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-cards reveal">
+                <div class="contact-card">
+                    <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+                    <div class="contact-card-text">
+                        <h4>Telefon</h4>
+                        <p><strong>+381 64 1234567</strong></p>
+                        <p>Pon – Pet: 08–20h</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="contact-card-text">
+                        <h4>Email</h4>
+                        <p><strong>info@premiumrentcar.rs</strong></p>
+                        <p>Odgovaramo u roku od 24h</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="contact-card-text">
+                        <h4>Lokacija</h4>
+                        <p><strong>Starine Novaka bb</strong></p>
+                        <p>34000 Kragujevac</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon"><i class="fas fa-clock"></i></div>
+                    <div class="contact-card-text">
+                        <h4>Radno Vreme</h4>
+                        <p><strong>Pon – Pet:</strong> 08 – 20h</p>
+                        <p><strong>Sub:</strong> 09 – 15h</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-wrap reveal reveal-delay-2">
+                <h2 class="form-title">Pošaljite Poruku</h2>
+                <div id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Vaše Ime</label>
+                            <input type="text" id="cName" placeholder="Marko Marković">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="cEmail" placeholder="marko@email.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon</label>
+                        <input type="tel" id="cPhone" placeholder="+381 64 ...">
+                    </div>
+                    <div class="form-group">
+                        <label>Poruka</label>
+                        <textarea id="cMsg" placeholder="Vaša poruka..."></textarea>
+                    </div>
+                    <button class="btn btn-primary form-submit" onclick="sendContact()">
+                        <i class="fas fa-paper-plane"></i> Pošalji Poruku
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#hero" class="nav-logo" style="font-size:1.8rem;">Premium<span>/</span>RC</a>
+                <p>Više od 15 godina pružamo premium usluge iznajmljivanja vozila u Kragujevcu i okolini.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Navigacija</h4>
+                <ul>
+                    <li><a href="#hero">Početna</a></li>
+                    <li><a href="#why-us">O Nama</a></li>
+                    <li><a href="#cars">Vozila</a></li>
+                    <li><a href="#services">Usluge</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kategorije</h4>
+                <ul>
+                    <li><a href="#cars">Luksuzna Vozila</a></li>
+                    <li><a href="#cars">Sportska Vozila</a></li>
+                    <li><a href="#cars">SUV Vozila</a></li>
+                    <li><a href="#cars">Električna Vozila</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <ul>
+                    <li><a href="tel:+38164123456">+381 64 123 456</a></li>
+                    <li><a href="mailto:info@premiumrc.rs">info@premiumrc.rs</a></li>
+                    <li><a href="#">Starine Novaka, Kragujevac</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="year"></span> <span>Premium RentCar</span>. Sva prava zadržana.</p>
+            <p>Napravljen sa <span>♥</span> u Kragujevcu</p>
+        </div>
+    </div>
+</footer>
+
+<!-- RESERVATION MODAL -->
+<div class="modal-overlay" id="reservationModal">
+    <div class="modal">
+        <button class="modal-close" onclick="closeModal('reservationModal')">
+            <i class="fas fa-times"></i>
+        </button>
+        <h2>Rezervacija</h2>
+        <p style="color:var(--text-muted);margin-bottom:24px;font-size:0.9rem;">Popunite podatke za rezervaciju</p>
+        <div class="modal-car-info" id="modalCarInfo">
+            <i class="fas fa-car"></i>
+            <div>
+                <h3 id="modalCarName">Vozilo</h3>
+                <p id="modalCarPrice">Cena po danu</p>
+            </div>
+        </div>
+        <div class="form-row" style="margin-bottom:16px;">
+            <div class="form-group" style="margin-bottom:0;">
+                <label>Datum Preuzimanja</label>
+                <input type="date" id="resDateFrom" onchange="calcPrice()">
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+                <label>Datum Povratka</label>
+                <input type="date" id="resDateTo" onchange="calcPrice()">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Lokacija Preuzimanja</label>
+            <select id="resLocation">
+                <option value="">Izaberite lokaciju...</option>
+                <option>Kragujevac – Centar</option>
+                <option>Kragujevac – Aerodrom</option>
+                <option>Dostava na adresu</option>
+            </select>
+        </div>
+        <div class="price-summary" id="priceSummary" style="display:none;">
+            <div class="price-row">
+                <span class="label">Broj dana</span>
+                <span class="value" id="sumDays">–</span>
+            </div>
+            <div class="price-row">
+                <span class="label">Cena po danu</span>
+                <span class="value" id="sumPerDay">–</span>
+            </div>
+            <div class="price-row total">
+                <span class="label">Ukupno</span>
+                <span class="value" id="sumTotal">–</span>
+            </div>
+        </div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="confirmReservation()">
+            <i class="fas fa-check"></i> Potvrdi Rezervaciju
+        </button>
+    </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="authModal">
+    <div class="modal" style="max-width: 400px;">
+        <button class="modal-close" onclick="closeModal('authModal')"><i class="fas fa-times"></i></button>
+        
+        <div id="loginFormWrap">
+            <h2>Prijava</h2>
+            <p style="color:var(--text-muted);margin-bottom:20px;font-size:0.9rem;">Unesite podatke za prijavu</p>
+            <form onsubmit="loginUser(event)">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" required placeholder="vas@email.com">
+                </div>
+                <div class="form-group" style="position:relative;">
+                    <label>Lozinka</label>
+                    <input type="password" id="loginPass" required placeholder="••••••••" style="padding-right: 40px;">
+                    <i class="fas fa-eye toggle-pass" data-target="loginPass" onclick="togglePassword('loginPass')" style="position:absolute; right:12px; top:42px; cursor:pointer; color:var(--text-muted); transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'"></i>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:10px;">Prijavi se</button>
+            </form>
+            <p style="text-align:center; margin-top:15px; font-size:0.9rem;">
+                Nemate nalog? <a href="javascript:void(0)" onclick="toggleAuthForm('register')" style="color:var(--gold);">Registrujte se</a>
+            </p>
+        </div>
+
+        <div id="registerFormWrap" style="display:none;">
+            <h2>Registracija</h2>
+            <p style="color:var(--text-muted);margin-bottom:20px;font-size:0.9rem;">Kreirajte novi nalog</p>
+            <form onsubmit="registerUser(event)">
+                <div class="form-group">
+                    <label>Ime i prezime</label>
+                    <input type="text" id="regName" required placeholder="Marko Marković">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="regEmail" required placeholder="vas@email.com">
+                </div>
+                <div class="form-group" style="position:relative;">
+                    <label>Lozinka</label>
+                    <input type="password" id="regPass" required placeholder="••••••••" style="padding-right: 40px;">
+                    <i class="fas fa-eye toggle-pass" data-target="regPass" onclick="togglePassword('regPass')" style="position:absolute; right:12px; top:42px; cursor:pointer; color:var(--text-muted); transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'"></i>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:10px;">Registruj se</button>
+            </form>
+            <p style="text-align:center; margin-top:15px; font-size:0.9rem;">
+                Već imate nalog? <a href="javascript:void(0)" onclick="toggleAuthForm('login')" style="color:var(--gold);">Prijavite se</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- ACCOUNT MODAL -->
+<div class="modal-overlay" id="accountModal">
+    <div class="modal" style="max-width: 600px;">
+        <button class="modal-close" onclick="closeModal('accountModal')"><i class="fas fa-times"></i></button>
+        <h2>Moj Nalog</h2>
+        <div style="display:flex; align-items:center; gap:15px; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div style="width:50px;height:50px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#000;">
+                <i class="fas fa-user"></i>
+            </div>
+            <div>
+                <h3 id="accUserName" style="margin:0;">-</h3>
+                <p id="accUserEmail" style="margin:0;color:var(--text-muted);font-size:0.9rem;">-</p>
+            </div>
+            <button onclick="logoutUser()" class="btn btn-outline" style="margin-left:auto; padding: 8px 15px; font-size: 0.9rem;">
+                <i class="fas fa-sign-out-alt"></i> Odjava
+            </button>
+        </div>
+
+        <h3>Moje Rezervacije</h3>
+        <div id="userReservationsList" style="margin-top: 15px; max-height: 300px; overflow-y: auto; padding-right: 5px;">
+            <!-- Dinamički ubačene rezervacije -->
+        </div>
+    </div>
+</div>
+
+<!-- CONFIRM DELETE MODAL -->
+<div class="modal-overlay" id="confirmModal">
+    <div class="modal" style="max-width: 400px; text-align: center;">
+        <div style="font-size: 3rem; color: #ff5555; margin-bottom: 15px;">
+            <i class="fas fa-exclamation-circle"></i>
+        </div>
+        <h2 style="margin-bottom: 10px;">Otkazivanje Rezervacije</h2>
+        <p style="color:var(--text-muted); margin-bottom: 25px;">Da li ste sigurni da želite da otkažete ovu rezervaciju? Ova akcija se ne može poništiti.</p>
+        <div style="display: flex; gap: 15px;">
+            <button onclick="closeModal('confirmModal')" class="btn btn-outline" style="flex:1; justify-content:center;">Zadrži</button>
+            <button onclick="confirmDeleteReservation()" class="btn btn-primary" style="flex:1; justify-content:center; background: #ff5555; border-color: #ff5555; color: white;">Da, Otkaži</button>
+        </div>
+    </div>
+</div>
+
+<!-- THREE.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script src="js/three-scene.js?v=2"></script>
+<script src="js/cursor.js?v=2"></script>
+<script src="js/ui.js?v=2"></script>
+<script src="js/contact.js?v=2"></script>
+<script src="js/auth.js?v=2"></script>
+<script src="js/cars.js?v=2"></script>
+<script src="js/modal.js?v=2"></script>
+</body>
+</html>
+
