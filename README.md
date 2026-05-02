@@ -1,146 +1,92 @@
-[README.md](https://github.com/user-attachments/files/27289363/README.md)
-# Premium RentCar 🚗
+# 🏎️ Premium RentCar (Rent-a-Car Kragujevac)
 
-Premium rent-a-car web aplikacija za iznajmljivanje luksuznih vozila u Kragujevcu.
+Dobrodošli u repozitorijum **Premium RentCar** aplikacije! Ovo je moderna i interaktivna web aplikacija za iznajmljivanje automobila kreirana kao deo mog portfolio projekta. Sastoji se od korisničkog interfejsa za pregled i rezervaciju vozila, kao i funkcionalnog admin panela za upravljanje flotom.
 
-## 📋 Opis
+## 📝 Opis
 
-Kompletan web sistem za rent-a-car poslovanje sa:
-- Modernim korisničkim interfejsom
-- Admin panelom za upravljanje
-- Sistemom rezervacija
-- Korisničkim nalogima
+Premium RentCar je Vanilla JavaScript web aplikacija dizajnirana sa ciljem da pruži premium korisničko iskustvo. Projekat demonstrira moje veštine u kreiranju responsivnog, modernog interfejsa sa naprednim interakcijama i 3D elementima, kao i implementaciju klijentske logike za upravljanje podacima bez korišćenja eksternih frontend framework-a. Svi podaci se dinamički obrađuju i trenutno čuvaju u `localStorage`-u radi demonstracije funkcionalnosti.
 
 ## ✨ Funkcionalnosti
 
-### Korisnički Deo
-- **Hero sekcija** sa 3D animacijom (Three.js)
-- **Katalog vozila** sa filtriranjem (Luksuzna, Sportska, SUV)
-- **Sistem rezervacija** sa automatskim izračunavanjem cene
-- **Registracija i prijava** korisnika
-- **Kontakt forma** za upite
-- **Responsive design** za sve uređaje
-- **Custom cursor** efekat
-- **Smooth scroll** animacije
+Evo šta aplikacija trenutno nudi:
+
+- **Dinamičko učitavanje vozila:** Prikaz automobila iz lokalnog izvora podataka (JSON / localStorage).
+- **Filtriranje i sortiranje vozila:** Mogućnost brzog sortiranja i filtriranja prema kategorijama (Luksuzna, Sportska, SUV).
+- **Admin panel (`admin.html`):** Poseban deo aplikacije namenjen za dodavanje, brisanje i upravljanje vozilima i pregled poruka/rezervacija.
+- **Autentifikacija korisnika:** Sistem registracije i prijave (simuliran putem `localStorage`-a).
+- **Sistem rezervacija:** Mogućnost rezervisanja vozila uz dinamičku kalkulaciju cene na osnovu izabranih datuma.
+- **Korisnički nalog:** Pregled aktivnih rezervacija i mogućnost otkazivanja istih.
+- **Kontakt forma:** Validacija i simulirano slanje poruka (podaci stižu u admin panel).
+- **Moderno UI/UX iskustvo:** Custom kursor, glatke *reveal* animacije na skrol i responzivan dizajn za sve uređaje.
+- **3D Animacije:** Integracija Three.js biblioteke za atraktivan vizuelni efekat na početnoj strani.
+
+*Napomena: Backend trenutno nije implementiran. Baza podataka i API pozivi su simulirani korišćenjem klijentskog `localStorage`-a u svrhu prezentacije koncepta portfolija.*
+
+## 💻 Tehnologije
+
+- **HTML5** & **CSS3** (Modularni CSS pristup za lakše održavanje)
+- **JavaScript (ES6+)** - Vanilla JS za kompletnu klijentsku logiku
+- **Three.js** - Za 3D animacije u Hero sekciji
+- **Font Awesome (v6.5.1)** - Za ikonice
+- **Google Fonts** - *Bebas Neue* i *Outfit* tipografija
+
+## 📁 Struktura projekta
+
+Projekat je organizovan na sledeći način radi lakšeg snalaženja i održavanja:
+
+```text
+📦 PremiumRentCar
+ ┣ 📂 css            # Modularni stilovi (base.css, hero.css, itd.)
+ ┣ 📂 js             # Logika podeljena po modulima (auth.js, cars.js, three-scene.js...)
+ ┣ 📂 data           # Početni podaci (JSON podaci o vozilima)
+ ┣ 📜 index.html     # Glavna korisnička stranica
+ ┣ 📜 admin.html     # Administrativni panel
+ ┗ 📜 README.md      # Dokumentacija
+```
+
+## 🚀 Instalacija
+
+Da biste pokrenuli ovaj projekat lokalno na vašoj mašini, pratite ove korake:
+
+1. **Klonirajte repozitorijum:**
+   ```bash
+   git clone git@github.com:Borivoje96/BORAA96.git
+   ```
+2. **Uđite u folder projekta:**
+   ```bash
+   cd PremiumRentCar
+   ```
+3. **Pokrenite projekat:**
+   S obzirom da je ovo frontend aplikacija, možete je pokrenuti korišćenjem ekstenzije poput **Live Server** u VS Code-u, ili jednostavnim otvaranjem `index.html` fajla direktno u vašem web pregledaču.
+
+## 📸 Screenshot-ovi
+
+Ovde možete videti kako aplikacija izgleda u praksi:
+
+### Početna (Hero) sekcija
+![Hero Sekcija](./assets/PREMIUM%20RENT-CAR-SLIKE/SLIKA%201.PNG)
+
+### Zašto Izabrati Nas
+![Zašto Mi](./assets/PREMIUM%20RENT-CAR-SLIKE/SLIKA%202.PNG)
+
+### Naša Vozila i Filtriranje
+![Vozila](./assets/PREMIUM%20RENT-CAR-SLIKE/SLIKA%203.PNG)
+
+### Naše Usluge
+![Usluge](./assets/PREMIUM%20RENT-CAR-SLIKE/SLIKA%204.PNG)
+
+### Kontakt Forma
+![Kontakt](./assets/PREMIUM%20RENT-CAR-SLIKE/SLIKA%205.PNG)
 
 ### Admin Panel
-- **Dashboard** sa statistikom i chart-ovima
-- **Upravljanje rezervacijama** (statusi, brisanje)
-- **Pregled poruka** sa kontakt forme
-- **Login sistem** za administratore
-- **Real-time sinhronizacija** podataka
+![Admin Panel](./assets/PREMIUM%20RENT-CAR-SLIKE/SLIKA7.PNG)
 
-## 🛠️ Tehnologije
-
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **3D Grafika**: Three.js
-- **Charting**: Chart.js
-- **Ikone**: Font Awesome 6.5.1
-- **Fontovi**: Google Fonts (Bebas Neue, Outfit, Plus Jakarta Sans)
-- **Podaci**: LocalStorage (demo rešenje)
-
-## 📁 Struktura Projekta
-
-```
-PremiumRentCar/
-├── index.html          # Glavna korisnička stranica
-├── admin.html          # Admin panel
-├── css/
-│   ├── base.css        # Globalni stilovi i varijable
-│   ├── navbar.css      # Navigacija
-│   ├── hero.css        # Hero sekcija
-│   ├── sections.css    # Sektorski stilovi
-│   ├── footer.css      # Footer
-│   ├── modal.css       # Modal prozori
-│   ├── responsive.css  # Responsivnost
-│   └── admin.css       # Admin stilovi
-├── js/
-│   ├── three-scene.js  # Three.js animacija
-│   ├── cursor.js       # Custom cursor
-│   ├── ui.js           # UI interakcije
-│   ├── contact.js      # Kontakt forma
-│   ├── auth.js         # Autentifikacija i rezervacije
-│   ├── cars.js         # Prikaz vozila
-│   ├── modal.js        # Modal funkcionalnost
-│   └── admin.js        # Admin logika
-└── data/
-    └── cars.json       # Podaci o vozilima
-```
-
-## 🚀 Instalacija i Pokretanje
-
-1. **Kloniraj repository**
-```bash
-git clone [repository-url]
-cd PremiumRentCar
-```
-
-2. **Otvori u browser-u**
-- Jednostavno otvori `index.html` ili `admin.html` u bilo kom modernom browser-u
-- Nije potreban server za pokretanje
-
-3. **Admin pristup**
-- Email: `admin`
-- Lozinka: `admin`
-
-## 💡 Korišćenje
-
-### Korisnički Deo
-1. Pregledaj katalog vozila
-2. Registruj se ili prijavi
-3. Izaberi vozilo i klikni "Rezerviši"
-4. Popunite formu sa datumima i lokacijom
-5. Potvrdite rezervaciju
-6. Pratite status u "Moj Nalog"
-
-### Admin Panel
-1. Prijavi se sa admin kredencijalima
-2. Pregledaj statistiku na Dashboard-u
-3. Upravljaj rezervacijama (menjaj status, briši)
-4. Odgovaraj na poruke sa kontakt forme
-
-## 🎨 Dizajn
-
-- **Tema**: Dark premium sa zlatnim akcentima
-- **Boje**: 
-  - Primary: `#c9a84c` (Gold)
-  - Background: `#050608` (Black)
-  - Text: `#f5f0e8` (Off-white)
-- **Fontovi**: Bebas Neue (display), Outfit (body)
-- **Animacije**: Smooth transitions, reveal effects, 3D particles
-
-## ⚠️ Ograničenja (Demo Verzija)
-
-Ovo je **frontend demo projekat** sa sledećim ograničenjima:
-
-- **Nema backend-a** - podaci se čuvaju u localStorage
-- **Bezbednost** - lozinke nema hash-ovane (za demo)
-- **Email** - kontakt forma ne šalje stvarne email-ove
-- **Slike** - koriste se Unsplash URL-ovi
-- **Skalabilnost** - localStorage ima limit (5-10MB)
-
-## 🔮 Budući Razvoj
-
-Za produkciju potrebno:
-
-- [ ] Backend (Node.js/Express ili PHP/Laravel)
-- [ ] Baza podataka (PostgreSQL ili MongoDB)
-- [ ] Auth sistem (JWT, OAuth)
-- [ ] Payment gateway (Stripe, PayPal)
-- [ ] Email servis (SendGrid, Mailgun)
-- [ ] Image upload (Cloudinary, AWS S3)
-- [ ] Unit i E2E testovi
-- [ ] CI/CD pipeline
-- [ ] SEO optimizacija
+### Footer (Podnožje)
+![Footer](./assets/PREMIUM%20RENT-CAR-SLIKE/SLIKA%206.PNG)
 
 ## 👨‍💻 Autor
 
-Napravljeno sa ❤️ u Kragujevcu
+- **Borivoje** - *Frontend Developer*
+- GitHub:https://github.com/Borivoje96/BORAA96.git
+- LinkedIn: linkedin.com/in/borivoje-šunjevarić-8346ab278
 
-## 📄 Licence
-
-Ovaj projekat je kreiran za edukativne i portfolio svrhe.
-
-## 🤝 Doprinos
-
-Doprinosi su dobrodošli! Slobodno otvori issue ili napravi pull request.
