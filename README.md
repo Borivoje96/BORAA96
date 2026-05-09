@@ -1,201 +1,91 @@
-# 🎨 Borivoje Portfolio
+# 🏎️ Premium RentCar (Rent-a-Car Kragujevac)
 
-> **Moderni portfolio sajt koji prikazuje moje web development projekte i veštine**
+Dobrodošli u repozitorijum **Premium RentCar** aplikacije! Ovo je moderna i interaktivna web aplikacija za iznajmljivanje automobila kreirana kao deo mog portfolio projekta. Sastoji se od korisničkog interfejsa za pregled i rezervaciju vozila, kao i funkcionalnog admin panela za upravljanje flotom.
 
----
+## 📝 Opis
 
-## 📖 Opis projekta
+Premium RentCar je Vanilla JavaScript web aplikacija dizajnirana sa ciljem da pruži premium korisničko iskustvo. Projekat demonstrira moje veštine u kreiranju responsivnog, modernog interfejsa sa naprednim interakcijama i 3D elementima, kao i implementaciju klijentske logike za upravljanje podacima bez korišćenja eksternih frontend framework-a. Svi podaci se dinamički obrađuju i trenutno čuvaju u `localStorage`-u radi demonstracije funkcionalnosti.
 
-Borivoje Portfolio je **premium profesionalni portfolio sajt** koji prikazuje moje projekte i veštine u web development-u. Sajt uključuje:
-- **🌟 Premium dizajn** sa naprednim animiranim pozadinskim elementima
-- **🎨 3D efekte** i parallax animacije
-- **✨ Interactive particles sistem** sa mouse interakcijom
-- **🎯 Custom animated cursor** sa hover efektima
-- **📱 Fully responsive layout** za sve uređaje
-- **⚡ Premium loading screen** sa progress barom
-- **🔥 Smooth scroll animacije** i micro-interactions
-- **💫 Gradient efekti** i glow animacije
-- **📊 Projekt: Rent Car** - kompletna aplikacija za iznajmljivanje vozila
-- **📧 Kontakt formu** sa premium stylingom
+## ✨ Funkcionalnosti
 
----
+Evo šta aplikacija trenutno nudi:
 
-## 🚀 Ključne funkcionalnosti
+- **Dinamičko učitavanje vozila:** Prikaz automobila iz lokalnog izvora podataka (JSON / localStorage).
+- **Filtriranje i sortiranje vozila:** Mogućnost brzog sortiranja i filtriranja prema kategorijama (Luksuzna, Sportska, SUV).
+- **Admin panel (`admin.html`):** Poseban deo aplikacije namenjen za dodavanje, brisanje i upravljanje vozilima i pregled poruka/rezervacija.
+- **Autentifikacija korisnika:** Sistem registracije i prijave (simuliran putem `localStorage`-a).
+- **Sistem rezervacija:** Mogućnost rezervisanja vozila uz dinamičku kalkulaciju cene na osnovu izabranih datuma.
+- **Korisnički nalog:** Pregled aktivnih rezervacija i mogućnost otkazivanja istih.
+- **Kontakt forma:** Validacija i simulirano slanje poruka (podaci stižu u admin panel).
+- **Moderno UI/UX iskustvo:** Custom kursor, glatke *reveal* animacije na skrol i responzivan dizajn za sve uređaje.
+- **3D Animacije:** Integracija Three.js biblioteke za atraktivan vizuelni efekat na početnoj strani.
 
-### 👤 Portfolio sekcije
-- **Hero sekcija** sa animiranim pozadinskim elementima
-- **O meni** sekcija sa ličnim informacijama i statistikama
-- **Projekti** sekcija sa prikazom mojih radova
-- **Veštine** sekcija sa prikazom tehnologija
-- **Kontakt forma** za komunikaciju
+*Napomena: Backend trenutno nije implementiran. Baza podataka i API pozivi su simulirani korišćenjem klijentskog `localStorage`-a u svrhu prezentacije koncepta portfolija.*
 
-### 🎨 Premium UI/UX funkcionalnosti
-- **🎯 Custom animirani cursor** sa hover efektima i glow animacijama
-- **✨ Interactive particles sistem** sa mouse interakcijom i konekcijama
-- **🌟 Premium loading screen** sa progress barom i animiranim logo-om
-- **🔥 Smooth scroll animacije** sa parallax efektima
-- **💫 3D transformacije** i perspective efekti
-- **⚡ Scroll reveal animacije** sa delay efektima
-- **📊 Counter animacije** za statistike sa easing funkcijama
-- **🎨 Gradient tekst efekti** i glow animacije
-- **💎 Premium hover efekti** sa shine animacijama
-- **📱 Fully responsive dizajn** za sve uređaje
-- **🌊 Animirani marquee** sa tehnologijama
-- **🎭 Premium scrollbar** sa gradient dizajnom
+## 💻 Tehnologije
 
----
-
-## 🛠️ Tehnologije korišćene
-
-### Frontend
-- **HTML5** - Semantička struktura
-- **CSS3** - Moderni dizajn sa CSS Grid i Flexbox
-- **JavaScript (ES6+)** - Interaktivnost i animacije
-- **Google Fonts** - Tipografija (Bebas Neue, DM Sans, DM Serif Display)
-
-### Alati i tehnike
-- **Responsive Design** - Mobile-first pristup
-- **CSS Animations** - Smooth tranzicije i efekti
-- **Intersection Observer API** - Scroll-triggered animacije
-- **Custom Cursor** - Jedinstveno korisničko iskustvo
-
----
+- **HTML5** & **CSS3** (Modularni CSS pristup za lakše održavanje)
+- **JavaScript (ES6+)** - Vanilla JS za kompletnu klijentsku logiku
+- **Three.js** - Za 3D animacije u Hero sekciji
+- **Font Awesome (v6.5.1)** - Za ikonice
+- **Google Fonts** - *Bebas Neue* i *Outfit* tipografija
 
 ## 📁 Struktura projekta
 
+Projekat je organizovan na sledeći način radi lakšeg snalaženja i održavanja:
+
+```text
+📦 PremiumRentCar
+ ┣ 📂 css            # Modularni stilovi (base.css, hero.css, itd.)
+ ┣ 📂 js             # Logika podeljena po modulima (auth.js, cars.js, three-scene.js...)
+ ┣ 📂 data           # Početni podaci (JSON podaci o vozilima)
+ ┣ 📜 index.html     # Glavna korisnička stranica
+ ┣ 📜 admin.html     # Administrativni panel
+ ┗ 📜 README.md      # Dokumentacija
 ```
-PORTFOLIO BORIVOJE/
-├── index.html          # Glavna HTML stranica
-├── css/
-│   ├── base.css        # Osnovni stilovi i reset
-│   └── sections.css    # Stilovi za sve sekcije
-├── js/
-│   └── main.js         # JavaScript funkcionalnosti
-└── README.md           # Dokumentacija projekta
-```
 
----
+## 🚀 Instalacija
 
-## 🎯 Ključne karakteristike
+Da biste pokrenuli ovaj projekat lokalno na vašoj mašini, pratite ove korake:
 
-### Dizajn
-- **Tamna tema** sa zlatnim akcentima
-- **Minimalistički pristup** sa fokusom na sadržaj
-- **Profesionalna tipografija** sa više fontova
-- **Smooth animacije** i micro-interactions
-
-### Performanse
-- **Optimizovan kod** za brzo učitavanje
-- **Lazy loading** za buduće slike
-- **Efficient CSS** sa minimalnim dupliranjem
-- **Smooth scrolling** za bolje korisničko iskustvo
-
-### Responsive dizajn
-- **Mobile-first pristup**
-- **Breakpoints:** 768px (tablet), 1024px (desktop)
-- **Flexbox i Grid** za fleksibilan layout
-- **Touch-friendly** interakcije na mobilnim uređajima
-
----
-
-## 🚀 Kako pokrenuti projekat
-
-1. **Kloniraj repozitorijum**
+1. **Klonirajte repozitorijum:**
    ```bash
-   git clone [repository-url]
-   cd "PORTFOLIO BORIVOJE"
+   git clone git@github.com:Borivoje96/BORAA96.git
    ```
-
-2. **Otvori u browseru**
-   - Dvostruki klik na `index.html`
-   - Ili koristi Live Server extension za VS Code
-
-3. **Ili koristi lokalni server**
+2. **Uđite u folder projekta:**
    ```bash
-   # Python 3
-   python -m http.server 8000
-   
-   # Node.js (ako imaš http-server)
-   npx http-server
+   cd PremiumRentCar
    ```
+3. **Pokrenite projekat:**
+   S obzirom da je ovo frontend aplikacija, možete je pokrenuti korišćenjem ekstenzije poput **Live Server** u VS Code-u, ili jednostavnim otvaranjem `index.html` fajla direktno u vašem web pregledaču.
 
----
+## 📸 Screenshot-ovi
 
-## 📱 Browser podrška
+Ovde možete videti kako aplikacija izgleda u praksi:
 
-- ✅ Chrome/Chromium (latest)
-- ✅ Firefox (latest)
-- ✅ Safari (latest)
-- ✅ Edge (latest)
-- ✅ Opera (latest)
+### Početna (Hero) sekcija
+![Hero Sekcija](./assets/PREMIUM%20RENT-CAR-SLIKE/SLIKA%201.PNG)
 
----
+### Zašto Izabrati Nas
+![Zašto Mi](./assets/PREMIUM%20RENT-CAR-SLIKE/SLIKA%202.PNG)
 
-## 🎨 Kustomizacija
+### Naša Vozila i Filtriranje
+![Vozila](./assets/PREMIUM%20RENT-CAR-SLIKE/SLIKA%203.PNG)
 
-### Promena boja
-U `css/base.css` promeni CSS varijable:
-```css
-:root {
-  --bg: #0a0a0a;        /* Pozadina */
-  --text: #ffffff;      /* Tekst */
-  --gold: #d4af37;      /* Glavna boja */
-  --accent: #1a1a1a;    /* Sekundarna pozadina */
-}
-```
+### Naše Usluge
+![Usluge](./assets/PREMIUM%20RENT-CAR-SLIKE/SLIKA%204.PNG)
 
-### Dodavanje novih projekata
-U `index.html` dodaj novi `.project-card` u `.project-grid`:
-```html
-<div class="project-card half">
-  <div class="card-inner">
-    <div class="card-deco"></div>
-    <div class="card-tag">Kategorija</div>
-    <div class="card-bottom">
-      <div class="card-year">Godina</div>
-      <div class="card-title">Naziv Projekta</div>
-      <div class="card-stack">Tehnologije</div>
-      <div class="card-desc">Opis projekta</div>
-    </div>
-  </div>
-</div>
-```
+### Kontakt Forma
+![Kontakt](./assets/PREMIUM%20RENT-CAR-SLIKE/SLIKA%205.PNG)
 
----
+### Admin Panel
+![Admin Panel](./assets/PREMIUM%20RENT-CAR-SLIKE/SLIKA7.PNG)
 
-## 📊 Buduća unapređenja
-
-- [ ] Dodavanje blog sekcije
-- [ ] Integracija sa CMS-om
-- [ ] PWA funkcionalnosti
-- [ ] Više animacija i interakcija
-- [ ] Dark/Light theme toggle
-- [ ] Višejezička podrška
-
----
+### Footer (Podnožje)
+![Footer](./assets/PREMIUM%20RENT-CAR-SLIKE/SLIKA%206.PNG)
 
 ## 👨‍💻 Autor
 
-**Borivoje Šunjevarić**
-- Frontend Developer
-- Kragujevac, Serbia
-- 📧 borivojesunjevaric93@gmail.com
-- 📱 0607151996
-
----
-
-## 📄 Licenca
-
-Ovaj projekat je licenciran pod MIT licencom - vidi `LICENSE` fajl za detalje.
-
----
-
-## 🙏 Zahvalnice
-
-- Google Fonts za besplatne fontove
-- MDN Web Docs za dokumentaciju
-- Open source zajednici za inspiraciju
-
----
-
-**Built with ❤️ and lots of ☕**
+- **Borivoje** - *Frontend Developer*
+- GitHub:https://github.com/Borivoje96/BORAA96.git
+- LinkedIn: linkedin.com/in/borivoje-šunjevarić-8346ab278
