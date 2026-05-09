@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Borivoje Šunjevarić — Frontend Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/sections.css">
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-content">
+    <div class="loading-logo">B<span>.</span>S</div>
+    <div class="loading-bar">
+      <div class="loading-progress"></div>
+    </div>
+    <div class="loading-text">Loading premium experience...</div>
+  </div>
+</div>
+
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="curRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">B<span>.</span>S</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#timeline">Journey</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-gradient"></div>
+  </div>
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+  <div class="shape shape3"></div>
+  <div class="shape shape4"></div>
+  <div class="hero-grid-overlay"></div>
+
+  <div class="hero-eyebrow">Frontend Developer &amp; Creative Builder</div>
+  <h1 class="hero-name">
+    BORIVOJE
+    <span class="gold-line">ŠUNJEVARIĆ</span>
+  </h1>
+  <p class="hero-sub">Crafting <span>responsive</span> web experiences<br>with code, precision &amp; ambition.</p>
+
+  <span class="hero-vertical">Available for work · Kragujevac, Serbia</span>
+
+  <div class="hero-bottom">
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+    <span class="hero-copy">&copy; 2025</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">HTML<span class="dot">·</span></span>
+    <span class="marquee-item">CSS<span class="dot">·</span></span>
+    <span class="marquee-item">JAVASCRIPT<span class="dot">·</span></span>
+    <span class="marquee-item">REACT.JS<span class="dot">·</span></span>
+    <span class="marquee-item">BOOTSTRAP<span class="dot">·</span></span>
+    <span class="marquee-item">GIT<span class="dot">·</span></span>
+    <span class="marquee-item">GITHUB<span class="dot">·</span></span>
+    <span class="marquee-item">JSON<span class="dot">·</span></span>
+    <span class="marquee-item">RESPONSIVE DESIGN<span class="dot">·</span></span>
+    <span class="marquee-item">CURSOR AI<span class="dot">·</span></span>
+    <span class="marquee-item">WINDSURF<span class="dot">·</span></span>
+    <span class="marquee-item">GITHUB COPILOT<span class="dot">·</span></span>
+    <span class="marquee-item">CLAUDE AI<span class="dot">·</span></span>
+    <span class="marquee-item">KILO CODE<span class="dot">·</span></span>
+    <!-- duplicate -->
+    <span class="marquee-item">HTML<span class="dot">·</span></span>
+    <span class="marquee-item">CSS<span class="dot">·</span></span>
+    <span class="marquee-item">JAVASCRIPT<span class="dot">·</span></span>
+    <span class="marquee-item">REACT.JS<span class="dot">·</span></span>
+    <span class="marquee-item">BOOTSTRAP<span class="dot">·</span></span>
+    <span class="marquee-item">GIT<span class="dot">·</span></span>
+    <span class="marquee-item">GITHUB<span class="dot">·</span></span>
+    <span class="marquee-item">JSON<span class="dot">·</span></span>
+    <span class="marquee-item">RESPONSIVE DESIGN<span class="dot">·</span></span>
+    <span class="marquee-item">CURSOR AI<span class="dot">·</span></span>
+    <span class="marquee-item">WINDSURF<span class="dot">·</span></span>
+    <span class="marquee-item">GITHUB COPILOT<span class="dot">·</span></span>
+    <span class="marquee-item">CLAUDE AI<span class="dot">·</span></span>
+    <span class="marquee-item">KILO CODE<span class="dot">·</span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <span class="sec-label fade-up">01 — About</span>
+  <div class="about-grid">
+    <div class="fade-left">
+      <div class="about-big-num">30</div>
+      <div class="about-num-label">Years Old</div>
+      <div class="about-big-num" style="font-size:10vw;margin-top:1rem;">2+</div>
+      <div class="about-num-label">Years in Frontend</div>
+    </div>
+    <div>
+      <h2 class="sec-title fade-up">Who I Am</h2>
+      <div class="gold-line-h fade-up"></div>
+      <p class="about-bio fade-up">
+        I'm a <strong>certified Frontend Developer</strong> and traffic engineer based in Kragujevac, Serbia. I combine analytical precision from my engineering background with modern frontend skills — <strong>HTML, CSS, JavaScript, React</strong> and AI-powered development tools. I build responsive, user-focused web experiences and I'm constantly pushing to learn more and grow every single day.
+      </p>
+      <div class="stats-row">
+        <div class="stat-item fade-up">
+          <div class="num" data-target="2">0</div>
+          <div class="label">Current Projects</div>
+        </div>
+        <div class="stat-item fade-up" style="transition-delay:.1s">
+          <div class="num" data-target="12">0</div>
+          <div class="label">Technologies</div>
+        </div>
+        <div class="stat-item fade-up" style="transition-delay:.2s">
+          <div class="num" data-target="3">0</div>
+          <div class="label">Certificates</div>
+        </div>
+        <div class="stat-item fade-up" style="transition-delay:.3s">
+          <div class="num" data-target="2">0</div>
+          <div class="label">2 Years Training</div>
+        </div>
+      </div>
+      <div class="skills-row fade-up">
+        <span class="skill-tag">HTML5</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React.js</span>
+        <span class="skill-tag">Bootstrap</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">GitHub</span>
+        <span class="skill-tag">JSON</span>
+        <span class="skill-tag">Java basics</span>
+        <span class="skill-tag">Cursor AI</span>
+        <span class="skill-tag">Windsurf</span>
+        <span class="skill-tag">GitHub Copilot</span>
+        <span class="skill-tag">Claude AI</span>
+        <span class="skill-tag">VS Code</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <span class="sec-label fade-up">02 — What I Build</span>
+  <h2 class="sec-title-serif fade-up">Services &amp; Skills</h2>
+  <div class="gold-line-h fade-up"></div>
+
+  <div class="service-row fade-up">
+    <div class="srv-num">01</div>
+    <div class="srv-body">
+      <div class="srv-title">Responsive Web Design</div>
+      <div class="srv-desc">Clean, mobile-first layouts that work perfectly on every screen size and device. Pixel-perfect execution.</div>
+    </div>
+    <div class="srv-arrow">→</div>
+  </div>
+  <div class="service-row fade-up" style="transition-delay:.1s">
+    <div class="srv-num">02</div>
+    <div class="srv-body">
+      <div class="srv-title">Frontend Development</div>
+      <div class="srv-desc">Building interactive UIs with HTML, CSS, JavaScript and React.js — from landing pages to full web apps.</div>
+    </div>
+    <div class="srv-arrow">→</div>
+  </div>
+  <div class="service-row fade-up" style="transition-delay:.2s">
+    <div class="srv-num">03</div>
+    <div class="srv-body">
+      <div class="srv-title">Dynamic Web Applications</div>
+      <div class="srv-desc">Loading and filtering data from JSON, building functional app logic with dynamic DOM manipulation.</div>
+    </div>
+    <div class="srv-arrow">→</div>
+  </div>
+  <div class="service-row fade-up" style="transition-delay:.3s">
+    <div class="srv-num">04</div>
+    <div class="srv-body">
+      <div class="srv-title">AI-Assisted Development</div>
+      <div class="srv-desc">Using Cursor, Windsurf, GitHub Copilot and Claude for faster, smarter, and more efficient workflows.</div>
+    </div>
+    <div class="srv-arrow">→</div>
+  </div>
+  <div class="service-row fade-up" style="transition-delay:.4s">
+    <div class="srv-num">05</div>
+    <div class="srv-body">
+      <div class="srv-title">UI Component Building</div>
+      <div class="srv-desc">Reusable, scalable components in React with Bootstrap and custom CSS for maintainable codebases.</div>
+    </div>
+    <div class="srv-arrow">→</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="work">
+  <span class="sec-label fade-up">03 — Selected Work</span>
+  <h2 class="sec-title fade-up">My Projects<br><span style="color:var(--gold);font-size:0.6em;">2024 — 2025</span></h2>
+  <div class="gold-line-h fade-up"></div>
+
+  <div class="project-grid fade-up">
+    <div class="project-card full">
+      <div class="card-inner">
+        <div class="card-deco"></div><div class="card-deco2"></div>
+        <div class="card-tag">Personal Project</div>
+        <div class="card-bottom">
+          <div class="card-year">2024 — 2025</div>
+          <div class="card-title">Rent-a-Car<br>Web App</div>
+          <div class="card-stack">HTML · CSS · JavaScript · JSON</div>
+          <div class="card-desc">Complex car rental website with dynamic vehicle data loaded from JSON. Includes filtering, sorting and dynamic DOM element creation — full app logic from scratch.</div>
+        </div>
+      </div>
+      <div class="card-overlay"><div class="overlay-text">View Project →</div></div>
+    </div>
+
+    <div class="projects-row">
+      <div class="project-card half">
+        <div class="card-inner">
+          <div class="card-deco"></div>
+          <div class="card-tag">Bootcamp</div>
+          <div class="card-bottom">
+            <div class="card-year">2024</div>
+            <div class="card-title">Frontend Training Projects</div>
+            <div class="card-stack">HTML · CSS · JavaScript · React · Git</div>
+            <div class="card-desc">Collection of practical assignments from intensive 6-month frontend bootcamp. Focus on responsive design and UX.</div>
+          </div>
+        </div>
+        <div class="card-overlay"><div class="overlay-text">View Project →</div></div>
+      </div>
+
+      <div class="project-card half">
+        <div class="card-inner">
+          <div class="card-deco"></div>
+          <div class="card-tag">Academic</div>
+          <div class="card-bottom">
+            <div class="card-year">2018 — 2021</div>
+            <div class="card-title">Traffic Infrastructure Planning</div>
+            <div class="card-stack">Urban Planning · Team Collaboration</div>
+            <div class="card-desc">Student team project at Šumadija Academy — planned traffic infrastructure and optimized signalization for local community.</div>
+          </div>
+        </div>
+        <div class="card-overlay"><div class="overlay-text">View Project →</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section" id="process">
+  <span class="sec-label fade-up">04 — How I Work</span>
+  <h2 class="sec-title fade-up">My Process</h2>
+  <div class="gold-line-h fade-up"></div>
+
+  <div class="process-grid fade-up">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-icon">◈</div>
+      <div class="step-title">Discovery</div>
+      <div class="step-desc">Understanding the project goals, target users and technical requirements before writing a single line of code.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-icon">◉</div>
+      <div class="step-title">Planning</div>
+      <div class="step-desc">Structuring the HTML architecture, planning CSS layout and organizing JavaScript logic for clarity and scale.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-icon">◆</div>
+      <div class="step-title">Execution</div>
+      <div class="step-desc">Building clean, semantic, responsive code — component by component, tested on every screen size throughout.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-icon">◎</div>
+      <div class="step-title">Delivery</div>
+      <div class="step-desc">Final review, optimization and deployment. Clean code handed over with documentation and Git history.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section" id="timeline">
+  <span class="sec-label fade-up">05 — My Journey</span>
+  <h2 class="sec-title fade-up">Experience &amp;<br>Education</h2>
+  <div class="gold-line-h fade-up"></div>
+
+  <div class="timeline">
+    <div class="tl-item fade-left">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2024 — 2025</div>
+      <div class="tl-title">Frontend Developer Course</div>
+      <div class="tl-org">IT Bootcamp · Certificate Awarded</div>
+      <div class="tl-desc">Intensive 6-month training in HTML, CSS, JavaScript, Git and React basics. Worked on real tasks with focus on responsive design and user experience.</div>
+    </div>
+    <div class="tl-item fade-left" style="transition-delay:.15s">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2024 — 2025</div>
+      <div class="tl-title">Rent-a-Car Web Application</div>
+      <div class="tl-org">Personal Project · Solo Developer</div>
+      <div class="tl-desc">Built a full car rental web app using JavaScript and JSON — filtering, sorting, dynamic data rendering and complete DOM manipulation.</div>
+    </div>
+    <div class="tl-item fade-left" style="transition-delay:.3s">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2024</div>
+      <div class="tl-title">Basic Java Programming Course</div>
+      <div class="tl-org">Certificate · Variables, Loops, Conditions, Methods</div>
+      <div class="tl-desc">Completed foundational Java programming course covering core programming concepts applicable across languages.</div>
+    </div>
+    <div class="tl-item fade-left" style="transition-delay:.45s">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2018 — 2021</div>
+      <div class="tl-title">Traffic Engineering Student Projects</div>
+      <div class="tl-org">Akademija strukovnih studija Šumadija · Kragujevac</div>
+      <div class="tl-desc">Participated in team projects for traffic infrastructure planning and urban signal optimization for local community needs.</div>
+    </div>
+    <div class="tl-item fade-left" style="transition-delay:.6s">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2015 — 2021</div>
+      <div class="tl-title">Strukovni Inženjer Saobraćaja</div>
+      <div class="tl-org">Akademija strukovnih studija Šumadija · Kragujevac</div>
+      <div class="tl-desc">Bachelor-level degree in traffic engineering. Developed strong analytical and problem-solving skills applicable to technical development work.</div>
+    </div>
+    <div class="tl-item fade-left" style="transition-delay:.75s">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2011 — 2015</div>
+      <div class="tl-title">Tehničar Drumskog Saobraćaja</div>
+      <div class="tl-org">Tehnička škola · Kragujevac</div>
+      <div class="tl-desc">Technical high school specializing in road traffic. Foundation for logical, systematic thinking and technical precision.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLKIT -->
+<section class="toolkit-section" id="toolkit">
+  <span class="sec-label fade-up">06 — Tech Stack</span>
+  <h2 class="sec-title fade-up">Tools &amp;<br>Technologies</h2>
+  <div class="gold-line-h fade-up"></div>
+
+  <div class="toolkit-grid">
+    <div class="toolkit-col fade-up">
+      <div class="toolkit-col-title">Design &amp; UI</div>
+      <div class="tool-item"><div class="tool-dot"></div>HTML5</div>
+      <div class="tool-item"><div class="tool-dot"></div>CSS3</div>
+      <div class="tool-item"><div class="tool-dot"></div>Bootstrap</div>
+      <div class="tool-item"><div class="tool-dot"></div>Responsive Design</div>
+      <div class="tool-item"><div class="tool-dot"></div>Figma (basics)</div>
+    </div>
+    <div class="toolkit-col fade-up" style="transition-delay:.15s">
+      <div class="toolkit-col-title">Development</div>
+      <div class="tool-item"><div class="tool-dot"></div>JavaScript (ES6+)</div>
+      <div class="tool-item"><div class="tool-dot"></div>React.js</div>
+      <div class="tool-item"><div class="tool-dot"></div>JSON</div>
+      <div class="tool-item"><div class="tool-dot"></div>Java (basics)</div>
+      <div class="tool-item"><div class="tool-dot"></div>Git &amp; GitHub</div>
+    </div>
+    <div class="toolkit-col fade-up" style="transition-delay:.3s">
+      <div class="toolkit-col-title">AI &amp; Dev Tools</div>
+      <div class="tool-item"><div class="tool-dot"></div>Cursor AI Editor</div>
+      <div class="tool-item"><div class="tool-dot"></div>Windsurf Editor</div>
+      <div class="tool-item"><div class="tool-dot"></div>GitHub Copilot</div>
+      <div class="tool-item"><div class="tool-dot"></div>Claude AI</div>
+      <div class="tool-item"><div class="tool-dot"></div>Kilo Code</div>
+      <div class="tool-item"><div class="tool-dot"></div>Visual Studio Code</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section class="certs-section" id="certificates">
+  <span class="sec-label fade-up">07 — Certificates</span>
+  <h2 class="sec-title fade-up">Education &amp;<br>Certificates</h2>
+  <div class="gold-line-h fade-up"></div>
+
+  <div class="certs-grid">
+    <div class="cert-card fade-up">
+      <div class="cert-org">IT Bootcamp · 2024</div>
+      <div class="cert-name">Frontend Developer Course</div>
+      <div class="cert-year">HTML · CSS · JavaScript · React · Git</div>
+    </div>
+    <div class="cert-card fade-up" style="transition-delay:.15s">
+      <div class="cert-org">Programming Academy · 2024</div>
+      <div class="cert-name">Basic Java Programming</div>
+      <div class="cert-year">Variables · Loops · Conditions · Methods</div>
+    </div>
+    <div class="cert-card fade-up" style="transition-delay:.3s">
+      <div class="cert-org">Language Institute</div>
+      <div class="cert-name">English Language Certificate</div>
+      <div class="cert-year">Level A1 · A2 · B1</div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section class="interests-section" id="interests">
+  <span class="sec-label fade-up">08 — Beyond the Screen</span>
+  <h2 class="sec-title-serif fade-up"><em>Life outside</em><br>the code editor</h2>
+  <div class="gold-line-h fade-up"></div>
+
+  <div class="interests-grid">
+    <div class="interest-card fade-up">
+      <div class="interest-icon">♪</div>
+      <div class="interest-title">Harmonika</div>
+      <div class="interest-desc">I play accordion regularly — music is my creative outlet outside of code. It keeps my mind sharp and my creativity flowing.</div>
+    </div>
+    <div class="interest-card fade-up" style="transition-delay:.15s">
+      <div class="interest-icon">〜</div>
+      <div class="interest-title">Plivanje</div>
+      <div class="interest-desc">Trained competitive swimming for 6 full years. Still love it as a sport and a way to completely recharge and reset.</div>
+    </div>
+    <div class="interest-card fade-up" style="transition-delay:.3s">
+      <div class="interest-icon">◈</div>
+      <div class="interest-title">Sport</div>
+      <div class="interest-desc">I enjoy various physical activities to stay active, focused and balanced — a healthy body fuels a productive mind.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT INFO -->
+<section class="contact-section" id="contact">
+  <span class="sec-label fade-up">09 — Get In Touch</span>
+  <div class="contact-grid">
+    <div class="fade-up">
+      <div class="contact-big-title">Currently<br>open to<br><span>new<br>opportunities.</span></div>
+      <a href="mailto:borivojesunjevaric93@gmail.com" class="hire-btn">Hire Me →</a>
+    </div>
+    <div class="fade-up" style="transition-delay:.2s">
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-label">Location</div>
+          <div class="info-val">Kragujevac, Serbia</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Phone</div>
+          <div class="info-val"><a href="tel:0607151996">0607151996</a></div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Email</div>
+          <div class="info-val"><a href="mailto:borivojesunjevaric93@gmail.com">borivojesunjevaric93@gmail.com</a></div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Address</div>
+          <div class="info-val">Starine Novaka 3</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Date of Birth</div>
+          <div class="info-val">15.01.1996.</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Driver's License</div>
+          <div class="info-val">B category</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Languages</div>
+          <div class="info-val">Serbian (native) · English B1</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Availability</div>
+          <div class="info-val" style="color:var(--gold);">Freelance &amp; Full-time</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="form-section" id="form">
+  <h2 class="form-title fade-up">Let's Work<br><span>Together</span></h2>
+
+  <div class="form-row">
+    <div class="form-group fade-up">
+      <label class="form-label">Your Name</label>
+      <input type="text" class="form-input" placeholder="Ime i prezime">
+    </div>
+    <div class="form-group fade-up" style="transition-delay:.1s">
+      <label class="form-label">Email Address</label>
+      <input type="email" class="form-input" placeholder="vas@email.com">
+    </div>
+    <div class="form-group fade-up" style="transition-delay:.2s">
+      <label class="form-label">Subject</label>
+      <select class="form-select">
+        <option value="">— Izaberite —</option>
+        <option>Job Offer</option>
+        <option>Freelance Project</option>
+        <option>Collaboration</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group fade-up" style="transition-delay:.3s">
+      <label class="form-label">Budget / Timeline</label>
+      <input type="text" class="form-input" placeholder="npr. 500€ / 2 nedelje">
+    </div>
+    <div class="form-group full fade-up" style="transition-delay:.4s">
+      <label class="form-label">Message</label>
+      <textarea class="form-textarea" placeholder="Opišite vaš projekat ili upit..."></textarea>
+    </div>
+  </div>
+  <button class="submit-btn fade-up">SEND MESSAGE →</button>
+
+  <div class="email-link-wrap fade-up">
+    <span class="email-direct-label">Or reach out directly</span>
+    <a href="mailto:borivojesunjevaric93@gmail.com" class="email-direct">borivojesunjevaric93@gmail.com</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="#" class="footer-logo">BORIVOJE <span>ŠUNJEVARIĆ</span></a>
+      <div class="footer-tagline">Frontend Developer · Kragujevac, Serbia</div>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#timeline">Journey</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="footer-social">
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href="mailto:borivojesunjevaric93@gmail.com">Email</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2025 Borivoje Šunjevarić</span>
+    <span class="footer-copy">Built with code &amp; ambition.</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
