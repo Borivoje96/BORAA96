@@ -1,476 +1,548 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium RentCar – Vozite Luksuzno</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<link rel="stylesheet" href="css/base.css?v=2">
-    <link rel="stylesheet" href="css/navbar.css?v=2">
-    <link rel="stylesheet" href="css/hero.css?v=2">
-    <link rel="stylesheet" href="css/sections.css?v=2">
-    <link rel="stylesheet" href="css/footer.css?v=2">
-    <link rel="stylesheet" href="css/modal.css?v=2">
-    <link rel="stylesheet" href="css/responsive.css?v=2">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Borivoje Šunjevarić — Frontend Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/sections.css">
 </head>
 <body>
 
-<!-- CURSOR -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
-    <a href="#hero" onclick="closeMobile()">Početna</a>
-    <a href="#why-us" onclick="closeMobile()">O Nama</a>
-    <a href="#cars" onclick="closeMobile()">Vozila</a>
-    <a href="#services" onclick="closeMobile()">Usluge</a>
-    <a href="#contact" onclick="closeMobile()">Kontakt</a>
+<!-- LOADING SCREEN -->
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-content">
+    <div class="loading-logo">B<span>.</span>S</div>
+    <div class="loading-bar">
+      <div class="loading-progress"></div>
+    </div>
+    <div class="loading-text">Loading premium experience...</div>
+  </div>
 </div>
 
-<!-- NAVBAR -->
-<nav id="navbar">
-    <a href="#hero" class="nav-logo">Premium<span>/</span>RC</a>
-    <ul class="nav-links">
-        <li><a href="#hero">Početna</a></li>
-        <li><a href="#why-us">O Nama</a></li>
-        <li><a href="#cars">Vozila</a></li>
-        <li><a href="#services">Usluge</a></li>
-        <li><a href="#contact">Kontakt</a></li>
-        <li id="authNavItem"><a href="javascript:void(0)" onclick="openAuthModal()"><i class="fas fa-sign-in-alt"></i> Prijava</a></li>
-        <li><a href="#cars" class="nav-cta">Rezerviši</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-    </div>
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="curRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">B<span>.</span>S</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#timeline">Journey</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
-<section id="hero">
-    <canvas id="three-canvas"></canvas>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <div class="hero-tag">
-            <i class="fas fa-star"></i>
-            Premium Rent-a-Car Kragujevac
-        </div>
-        <h1 class="hero-title">
-            <span class="line1">Vozite</span>
-            <span class="line2">Luksuzno</span>
-        </h1>
-        <p class="hero-sub">
-            Iznajmite premium vozila za nezaboravno iskustvo. Naša flota luksuznih automobila čeka na Vas.
-        </p>
-        <div class="hero-features">
-            <div class="hf-item"><i class="fas fa-car-alt"></i> Najnoviji Modeli</div>
-            <div class="hf-item"><i class="fas fa-shield-alt"></i> Potpuno Osiguranje</div>
-            <div class="hf-item"><i class="fas fa-headset"></i> 24/7 Podrška</div>
-        </div>
-        <div class="hero-buttons">
-            <a href="#cars" class="btn btn-primary">
-                <i class="fas fa-car"></i> Pogledaj Vozila
-            </a>
-            <a href="#contact" class="btn btn-outline">
-                <i class="fas fa-phone"></i> Kontaktiraj Nas
-            </a>
-        </div>
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-gradient"></div>
+  </div>
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+  <div class="shape shape3"></div>
+  <div class="shape shape4"></div>
+  <div class="hero-grid-overlay"></div>
+
+  <div class="hero-eyebrow">Frontend Developer &amp; Creative Builder</div>
+  <h1 class="hero-name">
+    BORIVOJE
+    <span class="gold-line">ŠUNJEVARIĆ</span>
+  </h1>
+  <p class="hero-sub">Crafting <span>responsive</span> web experiences<br>with code, precision &amp; ambition.</p>
+
+  <span class="hero-vertical">Available for work · Kragujevac, Serbia</span>
+
+  <div class="hero-bottom">
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
     </div>
-    <div class="scroll-hint">
-        <i class="fas fa-chevron-down"></i>
-        <span>Skroluj</span>
-    </div>
+    <span class="hero-copy">&copy; 2025</span>
+  </div>
 </section>
 
-<!-- WHY US -->
-<section id="why-us">
-    <div class="container">
-        <div class="section-header reveal">
-            <div class="section-badge">● Zašto Mi</div>
-            <h2>Zašto Izabrati Nas?</h2>
-            <p>Više od 15 godina pružamo premium usluge iznajmljivanja vozila</p>
-        </div>
-        <div class="advantages-grid">
-            <div class="advantage-card reveal reveal-delay-1">
-                <div class="advantage-icon"><i class="fas fa-medal"></i></div>
-                <h3>Premium Vozila</h3>
-                <p>Naša flota se sastoji isključivo od vozila premium klase, redovno održavanih i servisiranih.</p>
-            </div>
-            <div class="advantage-card reveal reveal-delay-2">
-                <div class="advantage-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3>Potpuno Osiguranje</h3>
-                <p>Sva naša vozila su potpuno osigurana, pružajući vam bezbrižnost tokom vožnje.</p>
-            </div>
-            <div class="advantage-card reveal reveal-delay-3">
-                <div class="advantage-icon"><i class="fas fa-headset"></i></div>
-                <h3>24/7 Podrška</h3>
-                <p>Naš tim je dostupan 24/7 za sve vaše potrebe i hitne slučajeve.</p>
-            </div>
-            <div class="advantage-card reveal reveal-delay-4">
-                <div class="advantage-icon"><i class="fas fa-wallet"></i></div>
-                <h3>Transparentne Cene</h3>
-                <p>Bez skrivenih troškova. Sve cene su jasno definisane i konkurentne.</p>
-            </div>
-        </div>
-        <div class="stats-container reveal">
-            <div class="stat-item">
-                <div class="stat-number" data-target="15">0</div>
-                <div class="stat-label">Godina Iskustva</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="50">0</div>
-                <div class="stat-label">Premium Vozila</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="1000">0</div>
-                <div class="stat-label">Zadovoljnih Klijenata</div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">HTML<span class="dot">·</span></span>
+    <span class="marquee-item">CSS<span class="dot">·</span></span>
+    <span class="marquee-item">JAVASCRIPT<span class="dot">·</span></span>
+    <span class="marquee-item">REACT.JS<span class="dot">·</span></span>
+    <span class="marquee-item">BOOTSTRAP<span class="dot">·</span></span>
+    <span class="marquee-item">GIT<span class="dot">·</span></span>
+    <span class="marquee-item">GITHUB<span class="dot">·</span></span>
+    <span class="marquee-item">JSON<span class="dot">·</span></span>
+    <span class="marquee-item">RESPONSIVE DESIGN<span class="dot">·</span></span>
+    <span class="marquee-item">CURSOR AI<span class="dot">·</span></span>
+    <span class="marquee-item">WINDSURF<span class="dot">·</span></span>
+    <span class="marquee-item">GITHUB COPILOT<span class="dot">·</span></span>
+    <span class="marquee-item">CLAUDE AI<span class="dot">·</span></span>
+    <span class="marquee-item">KILO CODE<span class="dot">·</span></span>
+    <!-- duplicate -->
+    <span class="marquee-item">HTML<span class="dot">·</span></span>
+    <span class="marquee-item">CSS<span class="dot">·</span></span>
+    <span class="marquee-item">JAVASCRIPT<span class="dot">·</span></span>
+    <span class="marquee-item">REACT.JS<span class="dot">·</span></span>
+    <span class="marquee-item">BOOTSTRAP<span class="dot">·</span></span>
+    <span class="marquee-item">GIT<span class="dot">·</span></span>
+    <span class="marquee-item">GITHUB<span class="dot">·</span></span>
+    <span class="marquee-item">JSON<span class="dot">·</span></span>
+    <span class="marquee-item">RESPONSIVE DESIGN<span class="dot">·</span></span>
+    <span class="marquee-item">CURSOR AI<span class="dot">·</span></span>
+    <span class="marquee-item">WINDSURF<span class="dot">·</span></span>
+    <span class="marquee-item">GITHUB COPILOT<span class="dot">·</span></span>
+    <span class="marquee-item">CLAUDE AI<span class="dot">·</span></span>
+    <span class="marquee-item">KILO CODE<span class="dot">·</span></span>
+  </div>
+</div>
 
-<!-- CARS -->
-<section id="cars">
-    <div class="container">
-        <div class="section-header reveal">
-            <div class="section-badge">● Naša Flota</div>
-            <h2>Naša Vozila</h2>
-            <p>Izaberite iz naše premium kolekcije vozila i doživite vrhunsku udobnost i performanse</p>
-        </div>
-        <div class="filter-container reveal">
-            <button class="filter-btn active" data-filter="all">Sva Vozila</button>
-            <button class="filter-btn" data-filter="luksuzni">Luksuzna</button>
-            <button class="filter-btn" data-filter="sportski">Sportska</button>
-            <button class="filter-btn" data-filter="suv">SUV</button>
-        </div>
-        <div class="cars-grid" id="carsGrid">
-            <!-- Cars injected by JS -->
-        </div>
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <span class="sec-label fade-up">01 — About</span>
+  <div class="about-grid">
+    <div class="fade-left">
+      <div class="about-big-num">30</div>
+      <div class="about-num-label">Years Old</div>
+      <div class="about-big-num" style="font-size:10vw;margin-top:1rem;">2+</div>
+      <div class="about-num-label">Years in Frontend</div>
     </div>
+    <div>
+      <h2 class="sec-title fade-up">Who I Am</h2>
+      <div class="gold-line-h fade-up"></div>
+      <p class="about-bio fade-up">
+        I'm a <strong>certified Frontend Developer</strong> and traffic engineer based in Kragujevac, Serbia. I combine analytical precision from my engineering background with modern frontend skills — <strong>HTML, CSS, JavaScript, React</strong> and AI-powered development tools. I build responsive, user-focused web experiences and I'm constantly pushing to learn more and grow every single day.
+      </p>
+      <div class="stats-row">
+        <div class="stat-item fade-up">
+          <div class="num" data-target="2">0</div>
+          <div class="label">Current Projects</div>
+        </div>
+        <div class="stat-item fade-up" style="transition-delay:.1s">
+          <div class="num" data-target="12">0</div>
+          <div class="label">Technologies</div>
+        </div>
+        <div class="stat-item fade-up" style="transition-delay:.2s">
+          <div class="num" data-target="3">0</div>
+          <div class="label">Certificates</div>
+        </div>
+        <div class="stat-item fade-up" style="transition-delay:.3s">
+          <div class="num" data-target="2">0</div>
+          <div class="label">2 Years Training</div>
+        </div>
+      </div>
+      <div class="skills-row fade-up">
+        <span class="skill-tag">HTML5</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React.js</span>
+        <span class="skill-tag">Bootstrap</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">GitHub</span>
+        <span class="skill-tag">JSON</span>
+        <span class="skill-tag">Java basics</span>
+        <span class="skill-tag">Cursor AI</span>
+        <span class="skill-tag">Windsurf</span>
+        <span class="skill-tag">GitHub Copilot</span>
+        <span class="skill-tag">Claude AI</span>
+        <span class="skill-tag">VS Code</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SERVICES -->
-<section id="services">
-    <div class="container">
-        <div class="section-header reveal">
-            <div class="section-badge">● Šta Nudimo</div>
-            <h2>Naše Usluge</h2>
-            <p>Kompletna usluga iznajmljivanja vozila prilagođena vašim potrebama</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card reveal reveal-delay-1">
-                <div class="service-icon"><i class="fas fa-calendar-alt"></i></div>
-                <div class="service-text">
-                    <h3>Dugoročni Najam</h3>
-                    <p>Posebne cene i uslovi za dugoročni najam vozila. Idealno za poslovne klijente i duža putovanja.</p>
-                </div>
-            </div>
-            <div class="service-card reveal reveal-delay-2">
-                <div class="service-icon"><i class="fas fa-map-marked-alt"></i></div>
-                <div class="service-text">
-                    <h3>Dostava Vozila</h3>
-                    <p>Besplatna dostava vozila na željenu adresu u gradu. Takođe vršimo dostavu na aerodrom.</p>
-                </div>
-            </div>
-            <div class="service-card reveal reveal-delay-3">
-                <div class="service-icon"><i class="fas fa-clipboard-check"></i></div>
-                <div class="service-text">
-                    <h3>Premium Osiguranje</h3>
-                    <p>Sveobuhvatno osiguranje vozila sa 0% učešća u šteti. Potpuna bezbrižnost tokom vožnje.</p>
-                </div>
-            </div>
-            <div class="service-card reveal reveal-delay-4">
-                <div class="service-icon"><i class="fas fa-headset"></i></div>
-                <div class="service-text">
-                    <h3>24/7 Podrška</h3>
-                    <p>Profesionalna podrška dostupna non-stop. Pomoć na putu i tehnička asistencija u bilo koje vreme.</p>
-                </div>
-            </div>
-        </div>
+<section class="services-section" id="services">
+  <span class="sec-label fade-up">02 — What I Build</span>
+  <h2 class="sec-title-serif fade-up">Services &amp; Skills</h2>
+  <div class="gold-line-h fade-up"></div>
+
+  <div class="service-row fade-up">
+    <div class="srv-num">01</div>
+    <div class="srv-body">
+      <div class="srv-title">Responsive Web Design</div>
+      <div class="srv-desc">Clean, mobile-first layouts that work perfectly on every screen size and device. Pixel-perfect execution.</div>
     </div>
+    <div class="srv-arrow">→</div>
+  </div>
+  <div class="service-row fade-up" style="transition-delay:.1s">
+    <div class="srv-num">02</div>
+    <div class="srv-body">
+      <div class="srv-title">Frontend Development</div>
+      <div class="srv-desc">Building interactive UIs with HTML, CSS, JavaScript and React.js — from landing pages to full web apps.</div>
+    </div>
+    <div class="srv-arrow">→</div>
+  </div>
+  <div class="service-row fade-up" style="transition-delay:.2s">
+    <div class="srv-num">03</div>
+    <div class="srv-body">
+      <div class="srv-title">Dynamic Web Applications</div>
+      <div class="srv-desc">Loading and filtering data from JSON, building functional app logic with dynamic DOM manipulation.</div>
+    </div>
+    <div class="srv-arrow">→</div>
+  </div>
+  <div class="service-row fade-up" style="transition-delay:.3s">
+    <div class="srv-num">04</div>
+    <div class="srv-body">
+      <div class="srv-title">AI-Assisted Development</div>
+      <div class="srv-desc">Using Cursor, Windsurf, GitHub Copilot and Claude for faster, smarter, and more efficient workflows.</div>
+    </div>
+    <div class="srv-arrow">→</div>
+  </div>
+  <div class="service-row fade-up" style="transition-delay:.4s">
+    <div class="srv-num">05</div>
+    <div class="srv-body">
+      <div class="srv-title">UI Component Building</div>
+      <div class="srv-desc">Reusable, scalable components in React with Bootstrap and custom CSS for maintainable codebases.</div>
+    </div>
+    <div class="srv-arrow">→</div>
+  </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-    <div class="container">
-        <div class="section-header reveal">
-            <div class="section-badge">● Kontakt</div>
-            <h2>Kontaktirajte Nas</h2>
-            <p>Tu smo da odgovorimo na sva vaša pitanja</p>
-        </div>
-        <div class="contact-grid">
-            <div class="contact-cards reveal">
-                <div class="contact-card">
-                    <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
-                    <div class="contact-card-text">
-                        <h4>Telefon</h4>
-                        <p><strong>+381 64 1234567</strong></p>
-                        <p>Pon – Pet: 08–20h</p>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
-                    <div class="contact-card-text">
-                        <h4>Email</h4>
-                        <p><strong>info@premiumrentcar.rs</strong></p>
-                        <p>Odgovaramo u roku od 24h</p>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <div class="contact-card-text">
-                        <h4>Lokacija</h4>
-                        <p><strong>Starine Novaka bb</strong></p>
-                        <p>34000 Kragujevac</p>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-card-icon"><i class="fas fa-clock"></i></div>
-                    <div class="contact-card-text">
-                        <h4>Radno Vreme</h4>
-                        <p><strong>Pon – Pet:</strong> 08 – 20h</p>
-                        <p><strong>Sub:</strong> 09 – 15h</p>
-                    </div>
-                </div>
-            </div>
+<!-- PROJECTS -->
+<section class="projects-section" id="work">
+  <span class="sec-label fade-up">03 — Selected Work</span>
+  <h2 class="sec-title fade-up">My Projects<br><span style="color:var(--gold);font-size:0.6em;">2024 — 2025</span></h2>
+  <div class="gold-line-h fade-up"></div>
 
-            <div class="contact-form-wrap reveal reveal-delay-2">
-                <h2 class="form-title">Pošaljite Poruku</h2>
-                <div id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Vaše Ime</label>
-                            <input type="text" id="cName" placeholder="Marko Marković">
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" id="cEmail" placeholder="marko@email.com">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Telefon</label>
-                        <input type="tel" id="cPhone" placeholder="+381 64 ...">
-                    </div>
-                    <div class="form-group">
-                        <label>Poruka</label>
-                        <textarea id="cMsg" placeholder="Vaša poruka..."></textarea>
-                    </div>
-                    <button class="btn btn-primary form-submit" onclick="sendContact()">
-                        <i class="fas fa-paper-plane"></i> Pošalji Poruku
-                    </button>
-                </div>
-            </div>
+  <div class="project-grid fade-up">
+    <div class="project-card full">
+      <div class="card-inner">
+        <div class="card-deco"></div><div class="card-deco2"></div>
+        <div class="card-tag">Personal Project</div>
+        <div class="card-bottom">
+          <div class="card-year">2024 — 2025</div>
+          <div class="card-title">Rent-a-Car<br>Web App</div>
+          <div class="card-stack">HTML · CSS · JavaScript · JSON</div>
+          <div class="card-desc">Complex car rental website with dynamic vehicle data loaded from JSON. Includes filtering, sorting and dynamic DOM element creation — full app logic from scratch.</div>
         </div>
+      </div>
+      <div class="card-overlay"><div class="overlay-text">View Project →</div></div>
     </div>
+
+    <div class="projects-row">
+      <div class="project-card half">
+        <div class="card-inner">
+          <div class="card-deco"></div>
+          <div class="card-tag">Bootcamp</div>
+          <div class="card-bottom">
+            <div class="card-year">2024</div>
+            <div class="card-title">Frontend Training Projects</div>
+            <div class="card-stack">HTML · CSS · JavaScript · React · Git</div>
+            <div class="card-desc">Collection of practical assignments from intensive 6-month frontend bootcamp. Focus on responsive design and UX.</div>
+          </div>
+        </div>
+        <div class="card-overlay"><div class="overlay-text">View Project →</div></div>
+      </div>
+
+      <div class="project-card half">
+        <div class="card-inner">
+          <div class="card-deco"></div>
+          <div class="card-tag">Academic</div>
+          <div class="card-bottom">
+            <div class="card-year">2018 — 2021</div>
+            <div class="card-title">Traffic Infrastructure Planning</div>
+            <div class="card-stack">Urban Planning · Team Collaboration</div>
+            <div class="card-desc">Student team project at Šumadija Academy — planned traffic infrastructure and optimized signalization for local community.</div>
+          </div>
+        </div>
+        <div class="card-overlay"><div class="overlay-text">View Project →</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section" id="process">
+  <span class="sec-label fade-up">04 — How I Work</span>
+  <h2 class="sec-title fade-up">My Process</h2>
+  <div class="gold-line-h fade-up"></div>
+
+  <div class="process-grid fade-up">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-icon">◈</div>
+      <div class="step-title">Discovery</div>
+      <div class="step-desc">Understanding the project goals, target users and technical requirements before writing a single line of code.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-icon">◉</div>
+      <div class="step-title">Planning</div>
+      <div class="step-desc">Structuring the HTML architecture, planning CSS layout and organizing JavaScript logic for clarity and scale.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-icon">◆</div>
+      <div class="step-title">Execution</div>
+      <div class="step-desc">Building clean, semantic, responsive code — component by component, tested on every screen size throughout.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-icon">◎</div>
+      <div class="step-title">Delivery</div>
+      <div class="step-desc">Final review, optimization and deployment. Clean code handed over with documentation and Git history.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section" id="timeline">
+  <span class="sec-label fade-up">05 — My Journey</span>
+  <h2 class="sec-title fade-up">Experience &amp;<br>Education</h2>
+  <div class="gold-line-h fade-up"></div>
+
+  <div class="timeline">
+    <div class="tl-item fade-left">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2024 — 2025</div>
+      <div class="tl-title">Frontend Developer Course</div>
+      <div class="tl-org">IT Bootcamp · Certificate Awarded</div>
+      <div class="tl-desc">Intensive 6-month training in HTML, CSS, JavaScript, Git and React basics. Worked on real tasks with focus on responsive design and user experience.</div>
+    </div>
+    <div class="tl-item fade-left" style="transition-delay:.15s">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2024 — 2025</div>
+      <div class="tl-title">Rent-a-Car Web Application</div>
+      <div class="tl-org">Personal Project · Solo Developer</div>
+      <div class="tl-desc">Built a full car rental web app using JavaScript and JSON — filtering, sorting, dynamic data rendering and complete DOM manipulation.</div>
+    </div>
+    <div class="tl-item fade-left" style="transition-delay:.3s">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2024</div>
+      <div class="tl-title">Basic Java Programming Course</div>
+      <div class="tl-org">Certificate · Variables, Loops, Conditions, Methods</div>
+      <div class="tl-desc">Completed foundational Java programming course covering core programming concepts applicable across languages.</div>
+    </div>
+    <div class="tl-item fade-left" style="transition-delay:.45s">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2018 — 2021</div>
+      <div class="tl-title">Traffic Engineering Student Projects</div>
+      <div class="tl-org">Akademija strukovnih studija Šumadija · Kragujevac</div>
+      <div class="tl-desc">Participated in team projects for traffic infrastructure planning and urban signal optimization for local community needs.</div>
+    </div>
+    <div class="tl-item fade-left" style="transition-delay:.6s">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2015 — 2021</div>
+      <div class="tl-title">Strukovni Inženjer Saobraćaja</div>
+      <div class="tl-org">Akademija strukovnih studija Šumadija · Kragujevac</div>
+      <div class="tl-desc">Bachelor-level degree in traffic engineering. Developed strong analytical and problem-solving skills applicable to technical development work.</div>
+    </div>
+    <div class="tl-item fade-left" style="transition-delay:.75s">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2011 — 2015</div>
+      <div class="tl-title">Tehničar Drumskog Saobraćaja</div>
+      <div class="tl-org">Tehnička škola · Kragujevac</div>
+      <div class="tl-desc">Technical high school specializing in road traffic. Foundation for logical, systematic thinking and technical precision.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLKIT -->
+<section class="toolkit-section" id="toolkit">
+  <span class="sec-label fade-up">06 — Tech Stack</span>
+  <h2 class="sec-title fade-up">Tools &amp;<br>Technologies</h2>
+  <div class="gold-line-h fade-up"></div>
+
+  <div class="toolkit-grid">
+    <div class="toolkit-col fade-up">
+      <div class="toolkit-col-title">Design &amp; UI</div>
+      <div class="tool-item"><div class="tool-dot"></div>HTML5</div>
+      <div class="tool-item"><div class="tool-dot"></div>CSS3</div>
+      <div class="tool-item"><div class="tool-dot"></div>Bootstrap</div>
+      <div class="tool-item"><div class="tool-dot"></div>Responsive Design</div>
+      <div class="tool-item"><div class="tool-dot"></div>Figma (basics)</div>
+    </div>
+    <div class="toolkit-col fade-up" style="transition-delay:.15s">
+      <div class="toolkit-col-title">Development</div>
+      <div class="tool-item"><div class="tool-dot"></div>JavaScript (ES6+)</div>
+      <div class="tool-item"><div class="tool-dot"></div>React.js</div>
+      <div class="tool-item"><div class="tool-dot"></div>JSON</div>
+      <div class="tool-item"><div class="tool-dot"></div>Java (basics)</div>
+      <div class="tool-item"><div class="tool-dot"></div>Git &amp; GitHub</div>
+    </div>
+    <div class="toolkit-col fade-up" style="transition-delay:.3s">
+      <div class="toolkit-col-title">AI &amp; Dev Tools</div>
+      <div class="tool-item"><div class="tool-dot"></div>Cursor AI Editor</div>
+      <div class="tool-item"><div class="tool-dot"></div>Windsurf Editor</div>
+      <div class="tool-item"><div class="tool-dot"></div>GitHub Copilot</div>
+      <div class="tool-item"><div class="tool-dot"></div>Claude AI</div>
+      <div class="tool-item"><div class="tool-dot"></div>Kilo Code</div>
+      <div class="tool-item"><div class="tool-dot"></div>Visual Studio Code</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section class="certs-section" id="certificates">
+  <span class="sec-label fade-up">07 — Certificates</span>
+  <h2 class="sec-title fade-up">Education &amp;<br>Certificates</h2>
+  <div class="gold-line-h fade-up"></div>
+
+  <div class="certs-grid">
+    <div class="cert-card fade-up">
+      <div class="cert-org">IT Bootcamp · 2024</div>
+      <div class="cert-name">Frontend Developer Course</div>
+      <div class="cert-year">HTML · CSS · JavaScript · React · Git</div>
+    </div>
+    <div class="cert-card fade-up" style="transition-delay:.15s">
+      <div class="cert-org">Programming Academy · 2024</div>
+      <div class="cert-name">Basic Java Programming</div>
+      <div class="cert-year">Variables · Loops · Conditions · Methods</div>
+    </div>
+    <div class="cert-card fade-up" style="transition-delay:.3s">
+      <div class="cert-org">Language Institute</div>
+      <div class="cert-name">English Language Certificate</div>
+      <div class="cert-year">Level A1 · A2 · B1</div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section class="interests-section" id="interests">
+  <span class="sec-label fade-up">08 — Beyond the Screen</span>
+  <h2 class="sec-title-serif fade-up"><em>Life outside</em><br>the code editor</h2>
+  <div class="gold-line-h fade-up"></div>
+
+  <div class="interests-grid">
+    <div class="interest-card fade-up">
+      <div class="interest-icon">♪</div>
+      <div class="interest-title">Harmonika</div>
+      <div class="interest-desc">I play accordion regularly — music is my creative outlet outside of code. It keeps my mind sharp and my creativity flowing.</div>
+    </div>
+    <div class="interest-card fade-up" style="transition-delay:.15s">
+      <div class="interest-icon">〜</div>
+      <div class="interest-title">Plivanje</div>
+      <div class="interest-desc">Trained competitive swimming for 6 full years. Still love it as a sport and a way to completely recharge and reset.</div>
+    </div>
+    <div class="interest-card fade-up" style="transition-delay:.3s">
+      <div class="interest-icon">◈</div>
+      <div class="interest-title">Sport</div>
+      <div class="interest-desc">I enjoy various physical activities to stay active, focused and balanced — a healthy body fuels a productive mind.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT INFO -->
+<section class="contact-section" id="contact">
+  <span class="sec-label fade-up">09 — Get In Touch</span>
+  <div class="contact-grid">
+    <div class="fade-up">
+      <div class="contact-big-title">Currently<br>open to<br><span>new<br>opportunities.</span></div>
+      <a href="mailto:borivojesunjevaric93@gmail.com" class="hire-btn">Hire Me →</a>
+    </div>
+    <div class="fade-up" style="transition-delay:.2s">
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-label">Location</div>
+          <div class="info-val">Kragujevac, Serbia</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Phone</div>
+          <div class="info-val"><a href="tel:0607151996">0607151996</a></div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Email</div>
+          <div class="info-val"><a href="mailto:borivojesunjevaric93@gmail.com">borivojesunjevaric93@gmail.com</a></div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Address</div>
+          <div class="info-val">Starine Novaka 3</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Date of Birth</div>
+          <div class="info-val">15.01.1996.</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Driver's License</div>
+          <div class="info-val">B category</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Languages</div>
+          <div class="info-val">Serbian (native) · English B1</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Availability</div>
+          <div class="info-val" style="color:var(--gold);">Freelance &amp; Full-time</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="form-section" id="form">
+  <h2 class="form-title fade-up">Let's Work<br><span>Together</span></h2>
+
+  <div class="form-row">
+    <div class="form-group fade-up">
+      <label class="form-label">Your Name</label>
+      <input type="text" class="form-input" placeholder="Ime i prezime">
+    </div>
+    <div class="form-group fade-up" style="transition-delay:.1s">
+      <label class="form-label">Email Address</label>
+      <input type="email" class="form-input" placeholder="vas@email.com">
+    </div>
+    <div class="form-group fade-up" style="transition-delay:.2s">
+      <label class="form-label">Subject</label>
+      <select class="form-select">
+        <option value="">— Izaberite —</option>
+        <option>Job Offer</option>
+        <option>Freelance Project</option>
+        <option>Collaboration</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group fade-up" style="transition-delay:.3s">
+      <label class="form-label">Budget / Timeline</label>
+      <input type="text" class="form-input" placeholder="npr. 500€ / 2 nedelje">
+    </div>
+    <div class="form-group full fade-up" style="transition-delay:.4s">
+      <label class="form-label">Message</label>
+      <textarea class="form-textarea" placeholder="Opišite vaš projekat ili upit..."></textarea>
+    </div>
+  </div>
+  <button class="submit-btn fade-up">SEND MESSAGE →</button>
+
+  <div class="email-link-wrap fade-up">
+    <span class="email-direct-label">Or reach out directly</span>
+    <a href="mailto:borivojesunjevaric93@gmail.com" class="email-direct">borivojesunjevaric93@gmail.com</a>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="#hero" class="nav-logo" style="font-size:1.8rem;">Premium<span>/</span>RC</a>
-                <p>Više od 15 godina pružamo premium usluge iznajmljivanja vozila u Kragujevcu i okolini.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>Navigacija</h4>
-                <ul>
-                    <li><a href="#hero">Početna</a></li>
-                    <li><a href="#why-us">O Nama</a></li>
-                    <li><a href="#cars">Vozila</a></li>
-                    <li><a href="#services">Usluge</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Kategorije</h4>
-                <ul>
-                    <li><a href="#cars">Luksuzna Vozila</a></li>
-                    <li><a href="#cars">Sportska Vozila</a></li>
-                    <li><a href="#cars">SUV Vozila</a></li>
-                    <li><a href="#cars">Električna Vozila</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Kontakt</h4>
-                <ul>
-                    <li><a href="tel:+38164123456">+381 64 123 456</a></li>
-                    <li><a href="mailto:info@premiumrc.rs">info@premiumrc.rs</a></li>
-                    <li><a href="#">Starine Novaka, Kragujevac</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© <span id="year"></span> <span>Premium RentCar</span>. Sva prava zadržana.</p>
-            <p>Napravljen sa <span>♥</span> u Kragujevcu</p>
-        </div>
+  <div class="footer-top">
+    <div>
+      <a href="#" class="footer-logo">BORIVOJE <span>ŠUNJEVARIĆ</span></a>
+      <div class="footer-tagline">Frontend Developer · Kragujevac, Serbia</div>
     </div>
+    <ul class="footer-nav">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#timeline">Journey</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="footer-social">
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href="mailto:borivojesunjevaric93@gmail.com">Email</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2025 Borivoje Šunjevarić</span>
+    <span class="footer-copy">Built with code &amp; ambition.</span>
+  </div>
 </footer>
 
-<!-- RESERVATION MODAL -->
-<div class="modal-overlay" id="reservationModal">
-    <div class="modal">
-        <button class="modal-close" onclick="closeModal('reservationModal')">
-            <i class="fas fa-times"></i>
-        </button>
-        <h2>Rezervacija</h2>
-        <p style="color:var(--text-muted);margin-bottom:24px;font-size:0.9rem;">Popunite podatke za rezervaciju</p>
-        <div class="modal-car-info" id="modalCarInfo">
-            <i class="fas fa-car"></i>
-            <div>
-                <h3 id="modalCarName">Vozilo</h3>
-                <p id="modalCarPrice">Cena po danu</p>
-            </div>
-        </div>
-        <div class="form-row" style="margin-bottom:16px;">
-            <div class="form-group" style="margin-bottom:0;">
-                <label>Datum Preuzimanja</label>
-                <input type="date" id="resDateFrom" onchange="calcPrice()">
-            </div>
-            <div class="form-group" style="margin-bottom:0;">
-                <label>Datum Povratka</label>
-                <input type="date" id="resDateTo" onchange="calcPrice()">
-            </div>
-        </div>
-        <div class="form-group">
-            <label>Lokacija Preuzimanja</label>
-            <select id="resLocation">
-                <option value="">Izaberite lokaciju...</option>
-                <option>Kragujevac – Centar</option>
-                <option>Kragujevac – Aerodrom</option>
-                <option>Dostava na adresu</option>
-            </select>
-        </div>
-        <div class="price-summary" id="priceSummary" style="display:none;">
-            <div class="price-row">
-                <span class="label">Broj dana</span>
-                <span class="value" id="sumDays">–</span>
-            </div>
-            <div class="price-row">
-                <span class="label">Cena po danu</span>
-                <span class="value" id="sumPerDay">–</span>
-            </div>
-            <div class="price-row total">
-                <span class="label">Ukupno</span>
-                <span class="value" id="sumTotal">–</span>
-            </div>
-        </div>
-        <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="confirmReservation()">
-            <i class="fas fa-check"></i> Potvrdi Rezervaciju
-        </button>
-    </div>
-</div>
-
-<!-- AUTH MODAL -->
-<div class="modal-overlay" id="authModal">
-    <div class="modal" style="max-width: 400px;">
-        <button class="modal-close" onclick="closeModal('authModal')"><i class="fas fa-times"></i></button>
-        
-        <div id="loginFormWrap">
-            <h2>Prijava</h2>
-            <p style="color:var(--text-muted);margin-bottom:20px;font-size:0.9rem;">Unesite podatke za prijavu</p>
-            <form onsubmit="loginUser(event)">
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="loginEmail" required placeholder="vas@email.com">
-                </div>
-                <div class="form-group" style="position:relative;">
-                    <label>Lozinka</label>
-                    <input type="password" id="loginPass" required placeholder="••••••••" style="padding-right: 40px;">
-                    <i class="fas fa-eye toggle-pass" data-target="loginPass" onclick="togglePassword('loginPass')" style="position:absolute; right:12px; top:42px; cursor:pointer; color:var(--text-muted); transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'"></i>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:10px;">Prijavi se</button>
-            </form>
-            <p style="text-align:center; margin-top:15px; font-size:0.9rem;">
-                Nemate nalog? <a href="javascript:void(0)" onclick="toggleAuthForm('register')" style="color:var(--gold);">Registrujte se</a>
-            </p>
-        </div>
-
-        <div id="registerFormWrap" style="display:none;">
-            <h2>Registracija</h2>
-            <p style="color:var(--text-muted);margin-bottom:20px;font-size:0.9rem;">Kreirajte novi nalog</p>
-            <form onsubmit="registerUser(event)">
-                <div class="form-group">
-                    <label>Ime i prezime</label>
-                    <input type="text" id="regName" required placeholder="Marko Marković">
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="regEmail" required placeholder="vas@email.com">
-                </div>
-                <div class="form-group" style="position:relative;">
-                    <label>Lozinka</label>
-                    <input type="password" id="regPass" required placeholder="••••••••" style="padding-right: 40px;">
-                    <i class="fas fa-eye toggle-pass" data-target="regPass" onclick="togglePassword('regPass')" style="position:absolute; right:12px; top:42px; cursor:pointer; color:var(--text-muted); transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'"></i>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:10px;">Registruj se</button>
-            </form>
-            <p style="text-align:center; margin-top:15px; font-size:0.9rem;">
-                Već imate nalog? <a href="javascript:void(0)" onclick="toggleAuthForm('login')" style="color:var(--gold);">Prijavite se</a>
-            </p>
-        </div>
-    </div>
-</div>
-
-<!-- ACCOUNT MODAL -->
-<div class="modal-overlay" id="accountModal">
-    <div class="modal" style="max-width: 600px;">
-        <button class="modal-close" onclick="closeModal('accountModal')"><i class="fas fa-times"></i></button>
-        <h2>Moj Nalog</h2>
-        <div style="display:flex; align-items:center; gap:15px; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <div style="width:50px;height:50px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#000;">
-                <i class="fas fa-user"></i>
-            </div>
-            <div>
-                <h3 id="accUserName" style="margin:0;">-</h3>
-                <p id="accUserEmail" style="margin:0;color:var(--text-muted);font-size:0.9rem;">-</p>
-            </div>
-            <button onclick="logoutUser()" class="btn btn-outline" style="margin-left:auto; padding: 8px 15px; font-size: 0.9rem;">
-                <i class="fas fa-sign-out-alt"></i> Odjava
-            </button>
-        </div>
-
-        <h3>Moje Rezervacije</h3>
-        <div id="userReservationsList" style="margin-top: 15px; max-height: 300px; overflow-y: auto; padding-right: 5px;">
-            <!-- Dinamički ubačene rezervacije -->
-        </div>
-    </div>
-</div>
-
-<!-- CONFIRM DELETE MODAL -->
-<div class="modal-overlay" id="confirmModal">
-    <div class="modal" style="max-width: 400px; text-align: center;">
-        <div style="font-size: 3rem; color: #ff5555; margin-bottom: 15px;">
-            <i class="fas fa-exclamation-circle"></i>
-        </div>
-        <h2 style="margin-bottom: 10px;">Otkazivanje Rezervacije</h2>
-        <p style="color:var(--text-muted); margin-bottom: 25px;">Da li ste sigurni da želite da otkažete ovu rezervaciju? Ova akcija se ne može poništiti.</p>
-        <div style="display: flex; gap: 15px;">
-            <button onclick="closeModal('confirmModal')" class="btn btn-outline" style="flex:1; justify-content:center;">Zadrži</button>
-            <button onclick="confirmDeleteReservation()" class="btn btn-primary" style="flex:1; justify-content:center; background: #ff5555; border-color: #ff5555; color: white;">Da, Otkaži</button>
-        </div>
-    </div>
-</div>
-
-<!-- THREE.JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-<script src="js/three-scene.js?v=2"></script>
-<script src="js/cursor.js?v=2"></script>
-<script src="js/ui.js?v=2"></script>
-<script src="js/contact.js?v=2"></script>
-<script src="js/auth.js?v=2"></script>
-<script src="js/cars.js?v=2"></script>
-<script src="js/modal.js?v=2"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
-
