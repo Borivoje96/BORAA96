@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Pro – Premium RentCar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<!-- ===================== LOGIN SCREEN ===================== -->
+<div id="adminLoginScreen">
+    <div class="login-wrapper">
+        <div class="login-illustration">
+            <div class="glass-panel">
+                <h2>Dobrodošli nazad.</h2>
+                <p>Upravljajte vašim voznim parkom uz naprednu analitiku i potpunu kontrolu nad celokupnim poslovanjem.</p>
+            </div>
+        </div>
+        <div class="login-box">
+            <div class="login-logo">
+                <div class="brand">Premium<span>/</span>RC</div>
+                <p>Pro Workspace</p>
+            </div>
+
+            <div class="login-error" id="loginError">
+                <i class="fas fa-exclamation-circle"></i> <span></span>
+            </div>
+
+            <form onsubmit="adminLogin(event)">
+                <div class="form-group">
+                    <label>Email ili Korisničko Ime</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="adminUser" placeholder="admin" required autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Lozinka</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="adminPass" placeholder="••••••••" required>
+                        <i class="fas fa-eye toggle-admin-pass" onclick="toggleAdminPass()"></i>
+                    </div>
+                </div>
+                <div class="form-options">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" checked>
+                        <span>Zapamti me</span>
+                    </label>
+                    <a href="#" class="forgot-pass">Zaboravljena lozinka?</a>
+                </div>
+                <button type="submit" class="btn-login">
+                    Prijavi se <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ===================== ADMIN PANEL ===================== -->
+<div id="adminPanel">
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="brand-logo">P<span>/</span>RC</div>
+                <div class="brand-text">Premium<span>RC</span></div>
+                <button class="toggle-sidebar"><i class="fas fa-bars"></i></button>
+            </div>
+            
+            <div class="sidebar-menu">
+                <p class="menu-label">GLAVNO</p>
+                <a href="#" class="nav-item active" onclick="switchSection('sec-dashboard', this)"><i class="fas fa-chart-pie"></i> <span>Dashboard</span></a>
+                <a href="#" class="nav-item" onclick="switchSection('sec-cars', this)"><i class="fas fa-car"></i> <span>Vozni Park</span></a>
+                <a href="#" class="nav-item" onclick="switchSection('sec-reservations', this)"><i class="fas fa-calendar-alt"></i> <span>Rezervacije</span> <span class="badge" id="navResCount">0</span></a>
+                <a href="#" class="nav-item" onclick="switchSection('sec-clients', this)"><i class="fas fa-users"></i> <span>Klijenti</span></a>
+                <a href="#" class="nav-item" onclick="switchSection('sec-messages', this)"><i class="fas fa-envelope"></i> <span>Poruke</span> <span class="badge" id="navMsgCount" style="background:var(--danger);color:white;display:none;">0</span></a>
+                
+                <p class="menu-label mt-4">SISTEM</p>
+                <a href="#" class="nav-item" onclick="switchSection('sec-reports', this)"><i class="fas fa-chart-line"></i> <span>Izveštaji</span></a>
+                <a href="#" class="nav-item" onclick="switchSection('sec-settings', this)"><i class="fas fa-cog"></i> <span>Podešavanja</span></a>
+                <a href="index.html" target="_blank" class="nav-item"><i class="fas fa-external-link-alt"></i> <span>Poseti Sajt</span></a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="admin-profile">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=d4af37&color=fff" alt="Admin">
+                    <div class="profile-info">
+                        <h4>Admin User</h4>
+                        <p>Superadmin</p>
+                    </div>
+                </div>
+                <button onclick="adminLogout()" class="btn-logout" title="Odjava"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-wrapper">
+            <!-- HEADER -->
+            <header class="top-header">
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Pretraži globalno (Ctrl+K)...">
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn"><i class="fas fa-bell"></i><span class="notification-dot"></span></button>
+                    <button class="icon-btn"><i class="fas fa-envelope"></i></button>
+                    <div class="header-date">
+                        <i class="far fa-clock"></i> <span id="currentDateTime"></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- DASHBOARD CONTENT -->
+            <main class="dashboard-content">
+                
+                <!-- SECTION: DASHBOARD -->
+                <div id="sec-dashboard" class="admin-section active">
+                    <div class="page-title">
+                        <div>
+                            <h1>Pregled Sistema</h1>
+                            <p>Dobrodošli nazad. Evo šta se dešava danas u vašem biznisu.</p>
+                        </div>
+                        <div class="title-actions">
+                            <button class="btn-primary" onclick="switchSection('sec-reservations', document.querySelectorAll('.nav-item')[2])"><i class="fas fa-plus"></i> Nova Rezervacija</button>
+                            <button class="btn-secondary"><i class="fas fa-download"></i> Izveštaj</button>
+                        </div>
+                    </div>
+
+                    <!-- STATS -->
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <div class="stat-icon-wrap" style="background: rgba(212, 175, 55, 0.1); color: var(--gold);">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-details">
+                                <p class="stat-title">Ukupno Rezervacija</p>
+                                <h3 id="statTotalRes">0</h3>
+                                <div class="stat-trend positive"><i class="fas fa-arrow-up"></i> 12% od prošlog meseca</div>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-icon-wrap" style="background: rgba(16, 185, 129, 0.1); color: var(--success);">
+                                <i class="fas fa-car-side"></i>
+                            </div>
+                            <div class="stat-details">
+                                <p class="stat-title">Aktivne Rente</p>
+                                <h3 id="statActiveRes">0</h3>
+                                <div class="stat-trend positive"><i class="fas fa-arrow-up"></i> 4% od prošlog meseca</div>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-icon-wrap" style="background: rgba(59, 130, 246, 0.1); color: var(--primary);">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-details">
+                                <p class="stat-title">Registrovani Klijenti</p>
+                                <h3 id="statUsers">0</h3>
+                                <div class="stat-trend neutral"><i class="fas fa-minus"></i> Nema promene</div>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-icon-wrap" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <div class="stat-details">
+                                <p class="stat-title">Ukupan Prihod</p>
+                                <h3 id="statRevenue">0€</h3>
+                                <div class="stat-trend positive"><i class="fas fa-arrow-up"></i> 24% od prošlog meseca</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CHARTS & TABLES -->
+                    <div class="content-grid">
+                        <div class="chart-section">
+                            <div class="section-header">
+                                <h3>Pregled Prihoda</h3>
+                                <select class="chart-filter"><option>Ova godina</option><option>Prošla godina</option></select>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="table-section">
+                            <div class="section-header">
+                                <h3>Nedavne Rezervacije</h3>
+                                <a href="#" class="view-all" onclick="switchSection('sec-reservations', document.querySelectorAll('.nav-item')[2])">Vidi sve</a>
+                            </div>
+                            
+                            <div class="table-filters">
+                                <div class="filter-group">
+                                    <button class="filter-btn active" data-status="all" onclick="filterByStatus('all')">Sve</button>
+                                    <button class="filter-btn" data-status="Aktivna" onclick="filterByStatus('Aktivna')">Aktivne</button>
+                                    <button class="filter-btn" data-status="Završena" onclick="filterByStatus('Završena')">Završene</button>
+                                </div>
+                                <div class="table-search">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" id="searchInput" placeholder="Pretraži po klijentu ili autu..." oninput="searchReservations()">
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="pro-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Klijent</th>
+                                            <th>Vozilo</th>
+                                            <th>Period Rente</th>
+                                            <th>Iznos</th>
+                                            <th>Status</th>
+                                            <th>Akcije</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="reservationsBody">
+                                        <!-- Populated by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /SECTION: DASHBOARD -->
+
+                <!-- SECTION: MESSAGES -->
+                <div id="sec-messages" class="admin-section" style="display: none;">
+                    <div class="page-title">
+                        <div>
+                            <h1>Poruke sa Sajta</h1>
+                            <p>Pregled svih poruka poslatih preko kontakt forme.</p>
+                        </div>
+                    </div>
+                    <div class="content-grid" style="grid-template-columns: 1fr;">
+                        <div class="table-section">
+                            <div class="section-header">
+                                <h3>Pristigle Poruke</h3>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="pro-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Status</th>
+                                            <th>Klijent</th>
+                                            <th>Email / Telefon</th>
+                                            <th style="max-width:300px;">Poruka</th>
+                                            <th>Datum</th>
+                                            <th>Akcije</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="messagesBody">
+                                        <!-- Populated by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION: CARS -->
+                <div id="sec-cars" class="admin-section" style="display: none;">
+                    <div class="page-title">
+                        <div>
+                            <h1>Vozni Park</h1>
+                            <p>Upravljanje svim vozilima u vašoj ponudi.</p>
+                        </div>
+                        <div class="title-actions">
+                            <button class="btn-primary"><i class="fas fa-plus"></i> Dodaj Vozilo</button>
+                        </div>
+                    </div>
+                    <div class="table-section" style="margin-top: 2rem;">
+                        <div style="text-align:center; padding: 60px 20px; color:var(--text-muted);">
+                            <div style="background:rgba(255,255,255,0.02); width:80px; height:80px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px;">
+                                <i class="fas fa-car" style="font-size:2.5rem; opacity:0.5;"></i>
+                            </div>
+                            <p style="font-weight:600; font-size:1.1rem; color:var(--text-main);">Modul u pripremi</p>
+                            <p style="font-size:0.9rem; margin-top:5px;">Ovde ćete moći da dodajete i uređujete vozila.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION: RESERVATIONS -->
+                <div id="sec-reservations" class="admin-section" style="display: none;">
+                    <div class="page-title">
+                        <div>
+                            <h1>Sve Rezervacije</h1>
+                            <p>Detaljan pregled i upravljanje apsolutno svim rezervacijama.</p>
+                        </div>
+                    </div>
+                    <div class="table-section" style="margin-top: 2rem;">
+                        <div style="text-align:center; padding: 60px 20px; color:var(--text-muted);">
+                            <div style="background:rgba(255,255,255,0.02); width:80px; height:80px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px;">
+                                <i class="fas fa-calendar-check" style="font-size:2.5rem; opacity:0.5;"></i>
+                            </div>
+                            <p style="font-weight:600; font-size:1.1rem; color:var(--text-main);">Kompletan Spisak</p>
+                            <p style="font-size:0.9rem; margin-top:5px;">(Za sada koristite tabelu sa Dashboard-a).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION: CLIENTS -->
+                <div id="sec-clients" class="admin-section" style="display: none;">
+                    <div class="page-title">
+                        <div>
+                            <h1>Klijenti</h1>
+                            <p>Baza registrovanih korisnika i njihov istorijat.</p>
+                        </div>
+                    </div>
+                    <div class="table-section" style="margin-top: 2rem;">
+                        <div style="text-align:center; padding: 60px 20px; color:var(--text-muted);">
+                            <div style="background:rgba(255,255,255,0.02); width:80px; height:80px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px;">
+                                <i class="fas fa-users" style="font-size:2.5rem; opacity:0.5;"></i>
+                            </div>
+                            <p style="font-weight:600; font-size:1.1rem; color:var(--text-main);">Modul za Klijente</p>
+                            <p style="font-size:0.9rem; margin-top:5px;">Uskoro dostupno.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION: REPORTS -->
+                <div id="sec-reports" class="admin-section" style="display: none;">
+                    <div class="page-title">
+                        <div>
+                            <h1>Izveštaji i Analitika</h1>
+                            <p>Napredna analitika poslovanja.</p>
+                        </div>
+                    </div>
+                    <div class="table-section" style="margin-top: 2rem;">
+                        <div style="text-align:center; padding: 60px 20px; color:var(--text-muted);">
+                            <div style="background:rgba(255,255,255,0.02); width:80px; height:80px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px;">
+                                <i class="fas fa-chart-line" style="font-size:2.5rem; opacity:0.5;"></i>
+                            </div>
+                            <p style="font-weight:600; font-size:1.1rem; color:var(--text-main);">Izveštaji u pripremi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION: SETTINGS -->
+                <div id="sec-settings" class="admin-section" style="display: none;">
+                    <div class="page-title">
+                        <div>
+                            <h1>Podešavanja Sistema</h1>
+                            <p>Konfiguracija osnovnih parametara aplikacije.</p>
+                        </div>
+                    </div>
+                    <div class="table-section" style="margin-top: 2rem;">
+                        <div style="text-align:center; padding: 60px 20px; color:var(--text-muted);">
+                            <div style="background:rgba(255,255,255,0.02); width:80px; height:80px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px;">
+                                <i class="fas fa-cog" style="font-size:2.5rem; opacity:0.5;"></i>
+                            </div>
+                            <p style="font-weight:600; font-size:1.1rem; color:var(--text-main);">Podešavanja</p>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="deleteConfirmModal" class="pro-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-dialog">
+        <div class="modal-icon warning">
+            <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <h3>Potvrda Brisanja</h3>
+        <p>Da li ste sigurni da želite da trajno obrišete ovu rezervaciju? Ova akcija se ne može poništiti i ukloniće sve podatke.</p>
+        <div class="modal-footer">
+            <button class="btn-ghost" onclick="closeDeleteModal()">Odustani</button>
+            <button class="btn-danger" id="confirmDeleteBtn">Obriši Zauvek</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

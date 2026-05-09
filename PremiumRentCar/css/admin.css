@@ -1,0 +1,1886 @@
+/* ===================== IMPORT FONT-OVA ===================== */
+
+/* @import učitava eksterni CSS fajl sa font-ovima */
+/* Google Fonts API - Plus Jakarta Sans font različitih težina (300-800) */
+/* wght=300 (light), 400 (regular), 500 (medium), 600 (semibold), 700 (bold), 800 (extra bold) */
+/* display=swap optimizira učitavanje font-a za bolje performanse */
+/* Zašto eksterni font? Moderni, čitljiv font za profesionalni izgled */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* ===================== CSS PRILAGODLJIVE SVOJINE (PROMENLJIVE) ===================== */
+
+/* :root pseudo-class definiše globalne CSS promenljive */
+/* Ove promenljive su dostupne svuda u fajlu i omogućavaju lako menjanje tema */
+/* --ime-vrednost je sintaksa za CSS promenljive */
+/* Zašto promenljive? DRY principle - lako menjanje boja i vrednosti na jednom mestu */
+:root {
+    /* ===================== ZLATNA PALETA (BRAND BOJE) ===================== */
+    --gold: #d4af37;          /* Glavna zlatna boja - primarna brand boja */
+    --gold-light: #f3e5ab;     /* Svetlija zlatna - za hover stanja */
+    --gold-dark: #aa8c2c;      /* Tamnija zlatna - za gradijente */
+    
+    /* ===================== POZADINSKE BOJE ===================== */
+    --bg-dark: #0f172a;        /* Tama plava/siva - glavna pozadina */
+    --bg-panel: #1e293b;       /* Nešto svetlija - za panele i kartice */
+    --bg-card: #0f172a;        /* Isto kao dark - za kartice */
+    
+    /* ===================== TEKST BOJE ===================== */
+    --text-main: #f8fafc;      /* Glavna boja teksta - skoro bela */
+    --text-muted: #94a3b8;     /* Utišana boja - za sekundarni tekst */
+    
+    /* ===================== IVICE ===================== */
+    --border: rgba(255, 255, 255, 0.08);      /* Transparentna bela - suptilne ivice */
+    --border-hover: rgba(255, 255, 255, 0.15); /* Jača transparentnost - za hover */
+    
+    /* ===================== SEMANTIČKE BOJE ===================== */
+    --primary: #3b82f6;        /* Plava - primarne akcije */
+    --success: #10b981;        /* Zelena - uspešne akcije */
+    --warning: #f59e0b;        /* Narandžasta - upozorenja */
+    --danger:  #ef4444;        /* Crvena - opasne akcije */
+    
+    /* ===================== SENKE ===================== */
+    /* Senka format: offset-x offset-y blur spread color */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);  /* Mala senka */
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Srednja senka */
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); /* Velika senka */
+    
+    /* ===================== ZAOBLJENI UGLOVI (BORDER RADIUS) ===================== */
+    --radius-sm: 0.375rem;    /* Mali ugao */
+    --radius-md: 0.5rem;      /* Srednji ugao */
+    --radius-lg: 0.75rem;     /* Veliki ugao */
+    --radius-xl: 1rem;        /* Ekstra veliki ugao */
+    
+    /* ===================== TRANSIJE (ANIMACIJE) ===================== */
+    /* cubic-bezier definše krivu ubrzanja/usporavanja animacije */
+    /* (0.4, 0, 0.2, 1) je ease-out kriva - brz početak, spor kraj */
+    /* all znači da se transition odnosi na sve promenljive svojstva */
+    /* 0.2s je trajanje animacije */
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===================== GLOBALNI RESET ===================== */
+
+/* * (universal selector) selektuje SVE elemente u dokumentu */
+/* margin: 0 uklanja default margin koje browser daje elementima */
+/* padding: 0 uklanja default padding */
+/* box-sizing: border-box - padding i border se računaju u širinu/visinu elementa */
+/* Zašto box-sizing: border-box? Lakše računanje dimenzija - bolji layout kontrola */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===================== BODY STILOVI ===================== */
+
+/* body selektor stilizuje ceo body element dokumenta */
+body {
+    /* font-family podešava font za ceo dokument */
+    /* 'Plus Jakarta Sans' je font koji smo učitali sa @import */
+    /* sans-serif je fallback ako glavni font ne uspe da se učita */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    
+    /* background-color podešava pozadinsku boju */
+    /* var(--bg-dark) koristi CSS promenljivu */
+    /* Zašto promenljiva? Lako menjanje teme na jednom mestu */
+    background-color: var(--bg-dark);
+    
+    /* color podešava default boju teksta za ceo dokument */
+    color: var(--text-main);
+    
+    /* overflow-x: hidden sprečava horizontalni scrollbar */
+    /* Zašto? Da ne bi bio horizontalni scroll ako sadržaj prelazi širinu */
+    overflow-x: hidden;
+    
+    /* -webkit-font-smoothing: antialiased poboljšava kvalitet fonta na WebKit browser-ima (Chrome, Safari) */
+    /* antialiased čini fontove glađim i čitljivijim na ekranima */
+    /* Zašto? Bolje čitljivost teksta, posebno na modernim ekranima visoke rezolucije */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ===================== EKRAN ZA PRIJAVU ===================== */
+
+/* #adminLoginScreen je ID selektor - stilizuje element sa ID-om 'adminLoginScreen' */
+/* ID selektori imaju najvišu specifičnost u CSS-u */
+/* Zašto ID selektor? Login screen je jedinstven element na stranici */
+#adminLoginScreen {
+    /* min-height: 100vh osigurava da element zauzima najmanje visinu viewport-a */
+    /* 100vh = 100% viewport height - visina vidljivog dela prozora */
+    /* Zašto min-height a ne height? Da bi se sadržaj mogao proširiti ako je potreban */
+    min-height: 100vh;
+    
+    /* display: flex omogućava flexbox layout */
+    /* Flexbox omogućava lako centriranje i raspoređivanje child elemenata */
+    display: flex;
+    
+    /* background podešava pozadinsku boju */
+    background: var(--bg-dark);
+}
+
+/* ===================== OMOTAČ PRIJAVE ===================== */
+
+/* .login-wrapper je class selektor - stilizuje elemente sa klasom 'login-wrapper' */
+/* Class selektori se mogu koristiti na više elemenata */
+.login-wrapper {
+    /* display: flex - flexbox layout za horizontalno raspoređivanje */
+    display: flex;
+    
+    /* width: 100% - element zauzima punu širinu roditelja */
+    width: 100%;
+    
+    /* min-height: 100vh - zauzima punu visinu viewport-a */
+    min-height: 100vh;
+}
+
+/* ===================== ILUSTRACIJA PRIJAVE (LEVA STRANA) ===================== */
+
+/* .login-illustration je leva strana login ekrana sa slikom */
+.login-illustration {
+    /* flex: 1.2 znači da ovaj element zauzima 1.2 delova prostora */
+    /* U flexbox-u, flex definše koliko prostora element zauzima relativno */
+    /* 1.2 znači da zauzima 20% više prostora nego element sa flex: 1 */
+    flex: 1.2;
+    
+    /* background je shorthand za sve background svojstva */
+    /* linear-gradient() kreira gradijent pozadinu */
+    /* 135deg je ugao gradijenta (diagonalno od gore desno do dole levo) */
+    /* rgba(15,23,42,0.85) je tamna plava sa 85% transparentnošću */
+    /* url('...') je slika iz Unsplash-a */
+    /* center/cover pozicionira sliku u centru i skalira je da pokrije ceo element */
+    /* , (zarez) odvaja gradijent od slike - gradijent je preko slike */
+    background: linear-gradient(135deg, rgba(15,23,42,0.85), rgba(15,23,42,0.4)), url('https://images.unsplash.com/photo-1503376760367-1b058c4f0393?q=80&w=2000&auto=format&fit=crop') center/cover;
+    
+    /* display: flex za centriranje sadržaja unutar ovog elementa */
+    display: flex;
+    
+    /* align-items: center centriranje vertikalno */
+    align-items: center;
+    
+    /* justify-content: center centriranje horizontalno */
+    justify-content: center;
+    
+    /* padding: 3rem dodaje unutrašnji razmak */
+    /* 3rem = 48px (1rem = 16px default) */
+    padding: 3rem;
+    
+    /* position: relative omogućava apsolutno pozicioniranje child elemenata */
+    position: relative;
+}
+
+/* ===================== STAKLENI PANEL ===================== */
+
+/* .glass-panel je "stakleni" panel sa blur efektom */
+/* Glassmorphism design trend - providan, blur pozadina */
+.glass-panel {
+    /* background: rgba(255, 255, 255, 0.03) - skoro transparentna bela */
+    /* rgba = red, green, blue, alpha (transparentnost) */
+    /* 0.03 alpha = 3% transparentnost */
+    background: rgba(255, 255, 255, 0.03);
+    
+    /* backdrop-filter: blur(16px) blurira pozadinu iza elementa */
+    /* Stvara efekat zamućenog stakla */
+    /* 16px je jačina blur-a */
+    /* Zašto? Moderni vizuelni efekat, čitačivost teksta preko slike */
+    backdrop-filter: blur(16px);
+    
+    /* -webkit-backdrop-filter je Safari/WebKit verzija */
+    /* Vendor prefix za kompatibilnost sa starijim browser-ima */
+    -webkit-backdrop-filter: blur(16px);
+    
+    /* border: 1px solid rgba(255, 255, 255, 0.1) - suptilna bela ivica */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* padding: 3rem - unutrašnji razmak */
+    padding: 3rem;
+    
+    /* border-radius: var(--radius-xl) - zaobljeni uglovi */
+    border-radius: var(--radius-xl);
+    
+    /* max-width: 500px - maksimalna širina elementa */
+    /* Element neće biti širi od 500px, ali može biti uži */
+    max-width: 500px;
+    
+    /* box-shadow dodaje senku elementu */
+    /* 0 25px 50px -12px: offset-x, offset-y, blur, spread */
+    /* rgba(0, 0, 0, 0.5) je crna sa 50% transparentnošću */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* ===================== GLASS PANEL NASLOV ===================== */
+
+.glass-panel h2 {
+    /* font-size: 2.5rem - veličina fonta (40px) */
+    font-size: 2.5rem;
+    
+    /* font-weight: 700 - bold težina */
+    font-weight: 700;
+    
+    /* margin-bottom: 1rem - razmak ispod elementa */
+    margin-bottom: 1rem;
+    
+    /* background: linear-gradient() kreira gradijent teksta */
+    /* to right - gradijent ide od leve do desne */
+    /* #fff do var(--text-muted) - bela do sive */
+    background: linear-gradient(to right, #fff, var(--text-muted));
+    
+    /* -webkit-background-clip: text - gradijent se primenjuje samo na tekst */
+    /* Vendor prefix za WebKit browser-e */
+    -webkit-background-clip: text;
+    
+    /* -webkit-text-fill-color: transparent - tekst postaje transparent */
+    /* Zajedno sa background-clip, ovo čini da se vidi gradijent umesto boje teksta */
+    -webkit-text-fill-color: transparent;
+}
+
+/* ===================== GLASS PANEL PARAGRAF ===================== */
+
+.glass-panel p {
+    /* color: #cbd5e1 - svetlo siva boja teksta */
+    color: #cbd5e1;
+    
+    /* font-size: 1.1rem - veličina fonta */
+    font-size: 1.1rem;
+    
+    /* line-height: 1.6 - visina linije (prostor između linija) */
+    /* 1.6 znači da je visina linije 1.6x veća od veličine fonta */
+    /* Zašto? Bolja čitljivost teksta */
+    line-height: 1.6;
+}
+
+/* ===================== KUTIJA PRIJAVE (DESNA STRANA) ===================== */
+
+/* .login-box je desna strana login ekrana sa formom */
+.login-box {
+    /* flex: 1 - zauzima 1 deo prostora (ostatak) */
+    flex: 1;
+    
+    /* background: var(--bg-panel) - pozadinska boja */
+    background: var(--bg-panel);
+    
+    /* padding: 4rem 5rem - padding: top/bottom 4rem, left/right 5rem */
+    padding: 4rem 5rem;
+    
+    /* display: flex */
+    display: flex;
+    
+    /* flex-direction: column - child elementi se raspoređuju vertikalno */
+    flex-direction: column;
+    
+    /* justify-content: center - vertikalno centriranje */
+    justify-content: center;
+    
+    /* max-width: 600px - maksimalna širina */
+    max-width: 600px;
+    
+    /* border-left: 1px solid var(--border) - leva ivica */
+    border-left: 1px solid var(--border);
+}
+
+/* ===================== LOGOTIP PRIJAVE ===================== */
+
+.login-logo {
+    /* margin-bottom: 3rem - razmak ispod logotipa */
+    margin-bottom: 3rem;
+}
+
+.login-logo .brand {
+    /* font-size: 2rem - veličina brenda */
+    font-size: 2rem;
+    
+    /* font-weight: 800 - extra bold */
+    font-weight: 800;
+    
+    /* letter-spacing: -0.02em - razmak između slova */
+    /* Negativna vrednost znači da su slova bliže jedno drugom */
+    /* -0.02em je suptilno smanjenje razmaka */
+    letter-spacing: -0.02em;
+}
+
+/* login-logo .brand span stilizuje span element unutar brand-a */
+.login-logo .brand span { color: var(--gold); }
+
+/* login-logo p stilizuje paragraf unutar login-logo */
+.login-logo p { color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem; font-weight: 500; }
+
+/* ===================== LOGIN ERROR PORUKA ===================== */
+
+.login-error {
+    /* background: rgba(239, 68, 68, 0.1) - crvena sa 10% transparentnošću */
+    /* Koristi var(--danger) boju (ef4444) */
+    background: rgba(239, 68, 68, 0.1);
+    
+    /* border: 1px solid rgba(239, 68, 68, 0.2) - crvena ivica */
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    
+    /* color: var(--danger) - crvena boja teksta */
+    color: var(--danger);
+    
+    /* padding: 1rem - unutrašnji razmak */
+    padding: 1rem;
+    
+    /* border-radius: var(--radius-md) - zaobljeni uglovi */
+    border-radius: var(--radius-md);
+    
+    /* margin-bottom: 1.5rem - razmak ispod */
+    margin-bottom: 1.5rem;
+    
+    /* display: none - element je nevidljiv (po default) */
+    /* JavaScript će promeniti na flex da bi prikazao grešku */
+    display: none;
+    
+    /* align-items: center - vertikalno centriranje sadržaja */
+    align-items: center;
+    
+    /* gap: 0.75rem - razmak između child elemenata */
+    gap: 0.75rem;
+    
+    /* font-size: 0.9rem */
+    font-size: 0.9rem;
+    
+    /* font-weight: 600 - semibold */
+    font-weight: 600;
+}
+
+/* ===================== GRUPA OBRAZCA ===================== */
+
+/* .form-group grupiše label i input u formi */
+.form-group {
+    /* margin-bottom: 1.5rem - razmak između form grupa */
+    margin-bottom: 1.5rem;
+}
+
+/* .form-group label stilizuje label element unutar form-group */
+.form-group label {
+    /* display: block - label postaje block element (zauzima punu širinu) */
+    /* Zašto? Da bi input bio ispod label-a */
+    display: block;
+    
+    /* margin-bottom: 0.5rem - razmak između label-a i input-a */
+    margin-bottom: 0.5rem;
+    
+    /* font-size: 0.875rem - veličina fonta (14px) */
+    font-size: 0.875rem;
+    
+    /* font-weight: 600 - semibold */
+    font-weight: 600;
+    
+    /* color: var(--text-muted) - boja teksta */
+    color: var(--text-muted);
+}
+
+/* ===================== INPUT SA IKONICOM ===================== */
+
+/* .input-with-icon je kontejner za input sa ikonicom unutar */
+.input-with-icon {
+    /* position: relative omogućava apsolutno pozicioniranje child elemenata */
+    position: relative;
+    
+    /* display: flex */
+    display: flex;
+    
+    /* align-items: center - vertikalno centriranje sadržaja */
+    align-items: center;
+}
+
+/* .input-with-icon i stilizuje ikonicu (Font Awesome) */
+.input-with-icon i {
+    /* position: absolute - apsolutno pozicioniranje unutar relativnog roditelja */
+    position: absolute;
+    
+    /* left: 1rem - udaljenost od leve ivice (16px) */
+    left: 1rem;
+    
+    /* color: var(--text-muted) - boja ikonice */
+    color: var(--text-muted);
+    
+    /* font-size: 1rem - veličina ikonice */
+    font-size: 1rem;
+}
+
+/* .input-with-icon input stilizuje input polje */
+.input-with-icon input {
+    /* width: 100% - input zauzima punu širinu roditelja */
+    width: 100%;
+    
+    /* padding: 0.875rem 1rem 0.875rem 2.75rem - padding: top, right, bottom, left */
+    /* Veći left padding (2.75rem) da bi se napravio prostor za ikonicu */
+    padding: 0.875rem 1rem 0.875rem 2.75rem;
+    
+    /* background: var(--bg-dark) - pozadina input-a */
+    background: var(--bg-dark);
+    
+    /* border: 1px solid var(--border) - ivica input-a */
+    border: 1px solid var(--border);
+    
+    /* border-radius: var(--radius-md) - zaobljeni uglovi */
+    border-radius: var(--radius-md);
+    
+    /* color: var(--text-main) - boja teksta u input-u */
+    color: var(--text-main);
+    
+    /* font-family: inherit - nasleđuje font od roditelja */
+    font-family: inherit;
+    
+    /* font-size: 0.95rem - veličina teksta */
+    font-size: 0.95rem;
+    
+    /* transition: var(--transition) - animacija pri promeni svojstava */
+    transition: var(--transition);
+}
+
+/* :focus pseudo-class selektuje element kada je fokusiran (npr. kliknut ili tab-ovan) */
+.input-with-icon input:focus {
+    /* outline: none - uklanja default browser outline */
+    /* Zašto? Custom focus stil sa border-color i box-shadow */
+    outline: none;
+    
+    /* border-color: var(--gold) - zlatna ivica pri fokusu */
+    border-color: var(--gold);
+    
+    /* box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1) - zlatni ring oko input-a */
+    /* 0 0 0 - nema offset-a (centriran) */
+    /* 3px - širina ring-a */
+    /* rgba(212, 175, 55, 0.1) - zlatna sa 10% transparentnošću */
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/* ===================== PRIKAZ/SKRIVANJE LOZINKE ===================== */
+
+/* .toggle-admin-pass je ikonica za prikaz/sakrivanje lozinke */
+.toggle-admin-pass {
+    /* position: absolute - apsolutno pozicioniranje */
+    position: absolute;
+    
+    /* right: 1rem - udaljenost od desne ivice */
+    right: 1rem;
+    
+    /* left: auto !important - override-uje left: 1rem iz .input-with-icon i */
+    /* !important povećava specifičnost - prisiljava primenu ovog stila */
+    left: auto !important;
+    
+    /* cursor: pointer - pokazuje pointer kursor na hover */
+    cursor: pointer;
+    
+    /* color: var(--text-muted) - boja ikonice */
+    color: var(--text-muted);
+    
+    /* transition: var(--transition) - animacija boje */
+    transition: var(--transition);
+}
+
+/* :hover pseudo-class - stilovi kada je miš iznad elementa */
+.toggle-admin-pass:hover { color: var(--text-main); }
+
+/* ===================== OPCIJE OBRAZCA (ZAPAMTI ME, ZABORAVLJENA LOZINKA) ===================== */
+
+.form-options {
+    /* display: flex */
+    display: flex;
+    
+    /* justify-content: space-between - raspoređuje elemente na krajeve */
+    justify-content: space-between;
+    
+    /* align-items: center - vertikalno centriranje */
+    align-items: center;
+    
+    /* margin-bottom: 2rem - razmak ispod */
+    margin-bottom: 2rem;
+    
+    /* font-size: 0.875rem */
+    font-size: 0.875rem;
+}
+
+/* .custom-checkbox stilizuje checkbox kontejner */
+.custom-checkbox {
+    /* display: flex */
+    display: flex;
+    
+    /* align-items: center - vertikalno centriranje checkbox-a i teksta */
+    align-items: center;
+    
+    /* gap: 0.5rem - razmak između checkbox-a i teksta */
+    gap: 0.5rem;
+    
+    /* cursor: pointer - pointer kursor */
+    cursor: pointer;
+    
+    /* color: var(--text-muted) - boja teksta */
+    color: var(--text-muted);
+    
+    /* font-weight: 500 */
+    font-weight: 500;
+}
+
+/* .forgot-pass stilizuje "zaboravio lozinku" link */
+.forgot-pass {
+    /* color: var(--gold) - zlatna boja */
+    color: var(--gold);
+    
+    /* text-decoration: none - uklanja podvlačenje link-a */
+    text-decoration: none;
+    
+    /* font-weight: 600 - semibold */
+    font-weight: 600;
+    
+    /* transition: var(--transition) - animacija boje */
+    transition: var(--transition);
+}
+
+.forgot-pass:hover { color: var(--gold-light); }
+
+/* ===================== DUGME PRIJAVE ===================== */
+
+.btn-login {
+    /* width: 100% - puna širina */
+    width: 100%;
+    
+    /* padding: 1rem - unutrašnji razmak */
+    padding: 1rem;
+    
+    /* background: var(--gold) - zlatna pozadina */
+    background: var(--gold);
+    
+    /* color: #000 - crna boja teksta */
+    color: #000;
+    
+    /* border: none - bez ivice */
+    border: none;
+    
+    /* border-radius: var(--radius-md) - zaobljeni uglovi */
+    border-radius: var(--radius-md);
+    
+    /* font-weight: 700 - bold */
+    font-weight: 700;
+    
+    /* font-size: 1rem */
+    font-size: 1rem;
+    
+    /* font-family: inherit */
+    font-family: inherit;
+    
+    /* cursor: pointer - pointer kursor */
+    cursor: pointer;
+    
+    /* display: flex */
+    display: flex;
+    
+    /* justify-content: center - horizontalno centriranje */
+    justify-content: center;
+    
+    /* align-items: center - vertikalno centriranje */
+    align-items: center;
+    
+    /* gap: 0.5rem - razmak između teksta i ikonice */
+    gap: 0.5rem;
+    
+    /* transition: var(--transition) - animacija */
+    transition: var(--transition);
+}
+
+.btn-login:hover {
+    /* background: var(--gold-light) - svetlija zlatna na hover */
+    background: var(--gold-light);
+    
+    /* transform: translateY(-2px) - pomeranje nagore za 2px */
+    /* Kreira efekat podizanja dugmeta */
+    transform: translateY(-2px);
+    
+    /* box-shadow - senka na hover */
+    /* 0 10px 20px -10px: offset-x, offset-y, blur, spread */
+    /* rgba(212, 175, 55, 0.5) - zlatna senka */
+    box-shadow: 0 10px 20px -10px rgba(212, 175, 55, 0.5);
+}
+
+/* ===================== ADMIN RASPORED ===================== */
+
+/* #adminPanel je glavni kontejner admin panela */
+/* display: none - po default je nevidljiv (prikazuje se nakon login-a) */
+#adminPanel { display: none; }
+
+/* .admin-layout je glavni layout kontejner */
+.admin-layout {
+    /* display: flex - flexbox layout */
+    display: flex;
+    
+    /* min-height: 100vh - zauzima punu visinu viewport-a */
+    min-height: 100vh;
+}
+
+/* ===================== BOČNA TRAKA ===================== */
+
+/* .sidebar je leva navigaciona traka */
+.sidebar {
+    /* width: 280px - fiksna širina sidebar-a */
+    width: 280px;
+    
+    /* background: var(--bg-panel) - pozadinska boja */
+    background: var(--bg-panel);
+    
+    /* border-right: 1px solid var(--border) - desna ivica */
+    border-right: 1px solid var(--border);
+    
+    /* display: flex */
+    display: flex;
+    
+    /* flex-direction: column - vertikalni raspored child elemenata */
+    flex-direction: column;
+    
+    /* position: fixed - fiksni pozicioniranje (ne skroluje sa sadržajem) */
+    position: fixed;
+    
+    /* height: 100vh - puna visina viewport-a */
+    height: 100vh;
+    
+    /* z-index: 40 - sloj slojevitosti */
+    /* Viši z-index znači da je element "iznad" drugih elemenata */
+    z-index: 40;
+    
+    /* transition: var(--transition) - animacija transform-a */
+    transition: var(--transition);
+}
+
+/* ===================== ZAGLAVLJE BOČNE TRAKE ===================== */
+
+.sidebar-header {
+    /* height: 76px - fiksna visina header-a */
+    height: 76px;
+    
+    /* padding: 0 1.5rem - horizontalni padding */
+    padding: 0 1.5rem;
+    
+    /* display: flex */
+    display: flex;
+    
+    /* align-items: center - vertikalno centriranje */
+    align-items: center;
+    
+    /* border-bottom: 1px solid var(--border) - donja ivica */
+    border-bottom: 1px solid var(--border);
+}
+
+/* ===================== BREND LOGOTIP ===================== */
+
+.brand-logo {
+    /* font-weight: 800 - extra bold */
+    font-weight: 800;
+    
+    /* font-size: 1.25rem */
+    font-size: 1.25rem;
+    
+    /* background: linear-gradient() - zlatni gradijent */
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    
+    /* color: #000 - crna boja teksta */
+    color: #000;
+    
+    /* width: 40px, height: 40px - kvadratni oblik */
+    width: 40px;
+    height: 40px;
+    
+    /* display: flex */
+    display: flex;
+    
+    /* align-items: center, justify-content: center - centriranje teksta */
+    align-items: center;
+    justify-content: center;
+    
+    /* border-radius: var(--radius-md) - zaobljeni uglovi */
+    border-radius: var(--radius-md);
+    
+    /* margin-right: 0.75rem - razmak desno */
+    margin-right: 0.75rem;
+    
+    /* box-shadow - zlatna senka */
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
+}
+
+/* ===================== BREND TEKST ===================== */
+
+.brand-text {
+    /* font-weight: 800 */
+    font-weight: 800;
+    
+    /* font-size: 1.15rem */
+    font-size: 1.15rem;
+    
+    /* letter-spacing: -0.02em */
+    letter-spacing: -0.02em;
+}
+
+.brand-text span { color: var(--gold); }
+
+/* ===================== PREKLOPNIK BOČNE TRAKE (MOBILNI) ===================== */
+
+.toggle-sidebar {
+    /* margin-left: auto - pomera na desnu stranu */
+    margin-left: auto;
+    
+    /* background: none - bez pozadine */
+    background: none;
+    
+    /* border: none - bez ivice */
+    border: none;
+    
+    /* color: var(--text-muted) */
+    color: var(--text-muted);
+    
+    /* cursor: pointer */
+    cursor: pointer;
+    
+    /* font-size: 1.2rem */
+    font-size: 1.2rem;
+    
+    /* display: none - sakriven na desktop-u */
+    /* Media query će ga prikazati na mobilnim */
+    display: none;
+}
+
+/* ===================== MENI BOČNE TRAKE ===================== */
+
+.sidebar-menu {
+    /* flex: 1 - zauzima preostali prostor */
+    flex: 1;
+    
+    /* padding: 1.5rem 1.25rem */
+    padding: 1.5rem 1.25rem;
+    
+    /* overflow-y: auto - vertikalni scroll ako sadržaj prelazi visinu */
+    overflow-y: auto;
+}
+
+/* ::-webkit-scrollbar stilizuje scrollbar u WebKit browser-ima */
+.sidebar-menu::-webkit-scrollbar { width: 4px; }
+
+/* ::-webkit-scrollbar-thumb stilizuje thumb (dršku) scrollbar-a */
+.sidebar-menu::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+/* ===================== OZNAKA MENIJA ===================== */
+
+.menu-label {
+    /* font-size: 0.75rem - mali font */
+    font-size: 0.75rem;
+    
+    /* font-weight: 800 */
+    font-weight: 800;
+    
+    /* color: var(--text-muted) */
+    color: var(--text-muted);
+    
+    /* margin-bottom: 0.75rem */
+    margin-bottom: 0.75rem;
+    
+    /* padding-left: 0.75rem */
+    padding-left: 0.75rem;
+    
+    /* letter-spacing: 0.1em - povećan razmak između slova */
+    letter-spacing: 0.1em;
+}
+
+/* Utility klasa za margin-top */
+.mt-4 { margin-top: 2rem; } /* 2rem = 32px */
+
+/* ===================== NAVIGACIONI ELEMENT ===================== */
+
+.nav-item {
+    /* display: flex */
+    display: flex;
+    
+    /* align-items: center */
+    align-items: center;
+    
+    /* gap: 0.75rem - razmak između ikonice i teksta */
+    gap: 0.75rem;
+    
+    /* padding: 0.85rem 1rem */
+    padding: 0.85rem 1rem;
+    
+    /* color: var(--text-muted) */
+    color: var(--text-muted);
+    
+    /* text-decoration: none - uklanja podvlačenje (za linkove) */
+    text-decoration: none;
+    
+    /* border-radius: var(--radius-md) */
+    border-radius: var(--radius-md);
+    
+    /* font-weight: 600 */
+    font-weight: 600;
+    
+    /* font-size: 0.95rem */
+    font-size: 0.95rem;
+    
+    /* margin-bottom: 0.35rem */
+    margin-bottom: 0.35rem;
+    
+    /* transition: var(--transition) */
+    transition: var(--transition);
+}
+
+.nav-item i { width: 22px; font-size: 1.1rem; text-align: center; } /* Širina ikonice */
+
+.nav-item:hover {
+    /* color: var(--text-main) - bela na hover */
+    color: var(--text-main);
+    
+    /* background: rgba(255, 255, 255, 0.03) - svetla pozadina na hover */
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* .active klasa označava trenutno aktivnu stranicu */
+.nav-item.active {
+    /* color: var(--gold) - zlatna boja */
+    color: var(--gold);
+    
+    /* background: rgba(212, 175, 55, 0.1) - zlatna pozadina */
+    background: rgba(212, 175, 55, 0.1);
+}
+
+/* ===================== ZNAČKA ===================== */
+
+.badge {
+    /* margin-left: auto - pomera na desnu stranu */
+    margin-left: auto;
+    
+    /* background: var(--gold) - zlatna pozadina */
+    background: var(--gold);
+    
+    /* color: #000 - crna boja teksta */
+    color: #000;
+    
+    /* font-size: 0.75rem */
+    font-size: 0.75rem;
+    
+    /* padding: 0.15rem 0.5rem */
+    padding: 0.15rem 0.5rem;
+    
+    /* border-radius: 12px - pil oblik */
+    border-radius: 12px;
+    
+    /* font-weight: 800 */
+    font-weight: 800;
+}
+
+/* ===================== DONJI DEO BOČNE TRAKE ===================== */
+
+.sidebar-footer {
+    /* padding: 1.25rem */
+    padding: 1.25rem;
+    
+    /* border-top: 1px solid var(--border) */
+    border-top: 1px solid var(--border);
+    
+    /* display: flex */
+    display: flex;
+    
+    /* align-items: center */
+    align-items: center;
+    
+    /* justify-content: space-between */
+    justify-content: space-between;
+}
+
+/* ===================== ADMIN PROFIL ===================== */
+
+.admin-profile {
+    /* display: flex */
+    display: flex;
+    
+    /* align-items: center */
+    align-items: center;
+    
+    /* gap: 0.75rem */
+    gap: 0.75rem;
+}
+
+.admin-profile img {
+    /* width: 40px, height: 40px */
+    width: 40px;
+    height: 40px;
+    
+    /* border-radius: 50% - kružni oblik */
+    border-radius: 50%;
+    
+    /* border: 2px solid var(--gold) - zlatna ivica */
+    border: 2px solid var(--gold);
+}
+
+.profile-info h4 { font-size: 0.9rem; font-weight: 700; color: var(--text-main); }
+.profile-info p { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
+
+/* ===================== DUGME ODJAVE ===================== */
+
+.btn-logout {
+    /* background: transparent */
+    background: transparent;
+    
+    /* border: none */
+    border: none;
+    
+    /* color: var(--text-muted) */
+    color: var(--text-muted);
+    
+    /* cursor: pointer */
+    cursor: pointer;
+    
+    /* padding: 0.5rem */
+    padding: 0.5rem;
+    
+    /* border-radius: var(--radius-sm) */
+    border-radius: var(--radius-sm);
+    
+    /* transition: var(--transition) */
+    transition: var(--transition);
+    
+    /* font-size: 1.1rem */
+    font-size: 1.1rem;
+}
+
+.btn-logout:hover {
+    /* color: var(--danger) - crvena na hover */
+    color: var(--danger);
+    
+    /* background: rgba(239, 68, 68, 0.1) - crvena pozadina */
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* ===================== GLAVNI SADRŽAJ ===================== */
+
+/* .main-wrapper je glavni kontejner za sadržaj admin panela */
+.main-wrapper {
+    /* flex: 1 - zauzima preostali prostor (desno od sidebar-a) */
+    flex: 1;
+    
+    /* margin-left: 280px - pomera sadržaj desno od sidebar-a */
+    /* 280px je širina sidebar-a */
+    margin-left: 280px;
+    
+    /* display: flex */
+    display: flex;
+    
+    /* flex-direction: column - vertikalni raspored child elemenata */
+    flex-direction: column;
+}
+
+/* ===================== GORNJE ZAGLAVLJE ===================== */
+
+.top-header {
+    /* height: 76px - fiksna visina header-a */
+    height: 76px;
+    
+    /* background: rgba(30, 41, 59, 0.85) - polu-transparentna pozadina */
+    /* rgba(30, 41, 59, 0.85) je var(--bg-panel) sa 85% opacity */
+    background: rgba(30, 41, 59, 0.85);
+    
+    /* backdrop-filter: blur(16px) - blurira pozadinu iza header-a */
+    /* Stvara efekat zamućenog stakla */
+    backdrop-filter: blur(16px);
+    
+    /* -webkit-backdrop-filter - Safari/WebKit verzija */
+    -webkit-backdrop-filter: blur(16px);
+    
+    /* border-bottom: 1px solid var(--border) */
+    border-bottom: 1px solid var(--border);
+    
+    /* display: flex */
+    display: flex;
+    
+    /* align-items: center */
+    align-items: center;
+    
+    /* justify-content: space-between */
+    justify-content: space-between;
+    
+    /* padding: 0 2rem - horizontalni padding */
+    padding: 0 2rem;
+    
+    /* position: sticky - element ostaje vidljiv prilikom scroll-a */
+    /* Sticky se ponaša kao relative dok ne dostigne top, zatim kao fixed */
+    position: sticky;
+    
+    /* top: 0 - sticky pozicija je na vrhu */
+    top: 0;
+    
+    /* z-index: 30 - sloj slojevitosti */
+    /* Niže od sidebar-a (z-index: 40) ali iznad sadržaja */
+    z-index: 30;
+}
+
+/* ===================== PRETRAGA ZAGLAVLJA ===================== */
+
+.header-search {
+    /* position: relative - za apsolutno pozicioniranje ikonice */
+    position: relative;
+    
+    /* width: 320px - fiksna širina search polja */
+    width: 320px;
+}
+
+.header-search i {
+    /* position: absolute - apsolutno pozicioniranje unutar relativnog roditelja */
+    position: absolute;
+    
+    /* left: 1.25rem - udaljenost od leve ivice */
+    left: 1.25rem;
+    
+    /* top: 50% - pozicioniranje na sredini vertikalno */
+    top: 50%;
+    
+    /* transform: translateY(-50%) - pomeranje nagore za 50% visine elementa */
+    /* Kombinacija top: 50% i translateY(-50%) centriranje elementa vertikalno */
+    transform: translateY(-50%);
+    
+    /* color: var(--text-muted) */
+    color: var(--text-muted);
+}
+
+.header-search input {
+    /* width: 100% - puna širina roditelja */
+    width: 100%;
+    
+    /* padding: 0.7rem 1rem 0.7rem 2.75rem - veći left padding za ikonicu */
+    padding: 0.7rem 1rem 0.7rem 2.75rem;
+    
+    /* background: rgba(255, 255, 255, 0.04) - skoro transparentna bela */
+    background: rgba(255, 255, 255, 0.04);
+    
+    /* border: 1px solid var(--border) */
+    border: 1px solid var(--border);
+    
+    /* border-radius: 30px - pil oblik (zaobljeni uglovi) */
+    border-radius: 30px;
+    
+    /* color: var(--text-main) */
+    color: var(--text-main);
+    
+    /* font-size: 0.9rem */
+    font-size: 0.9rem;
+    
+    /* font-weight: 500 */
+    font-weight: 500;
+    
+    /* transition: var(--transition) */
+    transition: var(--transition);
+}
+
+.header-search input:focus {
+    /* outline: none */
+    outline: none;
+    
+    /* border-color: rgba(212, 175, 55, 0.5) - zlatna ivica */
+    border-color: rgba(212, 175, 55, 0.5);
+    
+    /* background: rgba(15, 23, 42, 0.8) - tamnija pozadina na fokusu */
+    background: rgba(15, 23, 42, 0.8);
+    
+    /* box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.05) - zlatni ring */
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.05);
+}
+
+/* ===================== AKCIJE ZAGLAVLJA ===================== */
+
+.header-actions {
+    /* display: flex */
+    display: flex;
+    
+    /* align-items: center */
+    align-items: center;
+    
+    /* gap: 1rem - razmak između dugmadi */
+    gap: 1rem;
+}
+
+/* ===================== DUGME SA IKONICOM ===================== */
+
+.icon-btn {
+    /* background: transparent */
+    background: transparent;
+    
+    /* border: 1px solid var(--border) */
+    border: 1px solid var(--border);
+    
+    /* color: var(--text-muted) */
+    color: var(--text-muted);
+    
+    /* font-size: 1.1rem */
+    font-size: 1.1rem;
+    
+    /* cursor: pointer */
+    cursor: pointer;
+    
+    /* position: relative - za pozicioniranje notification dot-a */
+    position: relative;
+    
+    /* width: 40px, height: 40px - kvadratni oblik */
+    width: 40px;
+    height: 40px;
+    
+    /* display: flex */
+    display: flex;
+    
+    /* align-items: center, justify-content: center - centriranje ikonice */
+    align-items: center;
+    justify-content: center;
+    
+    /* border-radius: 50% - kružni oblik */
+    border-radius: 50%;
+    
+    /* transition: var(--transition) */
+    transition: var(--transition);
+}
+
+.icon-btn:hover { color: var(--text-main); background: rgba(255, 255, 255, 0.05); border-color: rgba(255,255,255,0.2); }
+
+/* ===================== TAČKA OBAVEŠTENJA ===================== */
+
+.notification-dot {
+    /* position: absolute - apsolutno pozicioniranje unutar icon-btn */
+    position: absolute;
+    
+    /* top: 0, right: 0 - gornji desni ugao */
+    top: 0;
+    right: 0;
+    
+    /* width: 10px, height: 10px - mali krug */
+    width: 10px;
+    height: 10px;
+    
+    /* background: var(--danger) - crvena boja */
+    background: var(--danger);
+    
+    /* border-radius: 50% - kružni oblik */
+    border-radius: 50%;
+    
+    /* border: 2px solid var(--bg-panel) - ivica za kontrast */
+    border: 2px solid var(--bg-panel);
+}
+
+/* ===================== DATUM U ZAGLAVLJU ===================== */
+
+.header-date {
+    /* display: flex */
+    display: flex;
+    
+    /* align-items: center */
+    align-items: center;
+    
+    /* gap: 0.5rem */
+    gap: 0.5rem;
+    
+    /* font-size: 0.875rem */
+    font-size: 0.875rem;
+    
+    /* font-weight: 600 */
+    font-weight: 600;
+    
+    /* color: var(--text-muted) */
+    color: var(--text-muted);
+    
+    /* margin-left: 1rem - razmak levo */
+    margin-left: 1rem;
+    
+    /* padding-left: 1.5rem */
+    padding-left: 1.5rem;
+    
+    /* border-left: 1px solid var(--border) - leva ivica kao separator */
+    border-left: 1px solid var(--border);
+}
+
+/* ===================== SADRŽAJ KONTROLNE TABLE ===================== */
+
+.dashboard-content {
+    /* padding: 2.5rem - unutrašnji razmak oko sadržaja */
+    padding: 2.5rem;
+}
+
+/* ===================== NASLOV STRANE ===================== */
+
+.page-title {
+    /* display: flex */
+    display: flex;
+    
+    /* justify-content: space-between */
+    justify-content: space-between;
+    
+    /* align-items: flex-end - poravnaj na dno (za razliku od center) */
+    align-items: flex-end;
+    
+    /* margin-bottom: 2.5rem */
+    margin-bottom: 2.5rem;
+}
+
+.page-title h1 {
+    /* font-size: 2rem */
+    font-size: 2rem;
+    
+    /* font-weight: 800 */
+    font-weight: 800;
+    
+    /* margin-bottom: 0.25rem */
+    margin-bottom: 0.25rem;
+    
+    /* letter-spacing: -0.02em */
+    letter-spacing: -0.02em;
+}
+
+.page-title p {
+    /* color: var(--text-muted) */
+    color: var(--text-muted);
+    
+    /* font-size: 1rem */
+    font-size: 1rem;
+    
+    /* font-weight: 500 */
+    font-weight: 500;
+}
+
+/* ===================== AKCIJE NASLOVA ===================== */
+
+.title-actions {
+    /* display: flex */
+    display: flex;
+    
+    /* gap: 1rem - razmak između dugmadi */
+    gap: 1rem;
+}
+
+/* ===================== PRIMARNA I SEKUNDARNA DUGMAD ===================== */
+
+/* Comma-separated selektor primenjuje stilove na oba elementa */
+.btn-primary, .btn-secondary {
+    /* padding: 0.75rem 1.5rem */
+    padding: 0.75rem 1.5rem;
+    
+    /* border-radius: var(--radius-md) */
+    border-radius: var(--radius-md);
+    
+    /* font-weight: 700 */
+    font-weight: 700;
+    
+    /* font-size: 0.9rem */
+    font-size: 0.9rem;
+    
+    /* cursor: pointer */
+    cursor: pointer;
+    
+    /* display: flex */
+    display: flex;
+    
+    /* align-items: center */
+    align-items: center;
+    
+    /* gap: 0.5rem */
+    gap: 0.5rem;
+    
+    /* transition: var(--transition) */
+    transition: var(--transition);
+}
+
+.btn-primary {
+    /* background: var(--gold) - zlatna pozadina */
+    background: var(--gold);
+    
+    /* color: #000 - crna boja teksta */
+    color: #000;
+    
+    /* border: none */
+    border: none;
+}
+
+.btn-primary:hover {
+    /* background: var(--gold-light) - svetlija zlatna */
+    background: var(--gold-light);
+    
+    /* transform: translateY(-2px) - podizanje efekat */
+    transform: translateY(-2px);
+    
+    /* box-shadow - zlatna senka */
+    box-shadow: 0 10px 15px -3px rgba(212, 175, 55, 0.3);
+}
+
+.btn-secondary {
+    /* background: rgba(255, 255, 255, 0.03) - transparentna bela */
+    background: rgba(255, 255, 255, 0.03);
+    
+    /* color: var(--text-main) */
+    color: var(--text-main);
+    
+    /* border: 1px solid var(--border) */
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    /* background: rgba(255, 255, 255, 0.08) - nešto manje transparentna */
+    background: rgba(255, 255, 255, 0.08);
+    
+    /* border-color: rgba(255,255,255,0.2) - jača ivica */
+    border-color: rgba(255,255,255,0.2);
+}
+
+/* ===================== KONTENJER STATISTIKA ===================== */
+
+.stats-container {
+    /* display: grid - CSS Grid layout */
+    /* Grid je 2D layout sistem za raspoređivanje elemenata u redove i kolone */
+    display: grid;
+    
+    /* grid-template-columns: repeat(4, 1fr) - 4 kolone jednake širine */
+    /* repeat(4, 1fr) znači: ponovi 1fr (1 fraction) 4 puta */
+    /* 1fr je jedinica frakcije - zauzima 1 deo dostupnog prostora */
+    grid-template-columns: repeat(4, 1fr);
+    
+    /* gap: 1.5rem - razmak između grid item-a */
+    gap: 1.5rem;
+    
+    /* margin-bottom: 2.5rem */
+    margin-bottom: 2.5rem;
+}
+
+/* ===================== KUTIJA STATISTIKE ===================== */
+
+.stat-box {
+    /* background: var(--bg-panel) */
+    background: var(--bg-panel);
+    
+    /* border: 1px solid var(--border) */
+    border: 1px solid var(--border);
+    
+    /* border-radius: var(--radius-xl) */
+    border-radius: var(--radius-xl);
+    
+    /* padding: 1.75rem */
+    padding: 1.75rem;
+    
+    /* display: flex */
+    display: flex;
+    
+    /* align-items: flex-start - poravnaj na vrh */
+    align-items: flex-start;
+    
+    /* gap: 1.25rem */
+    gap: 1.25rem;
+    
+    /* transition: var(--transition) */
+    transition: var(--transition);
+    
+    /* position: relative - za ::after pseudo-element */
+    position: relative;
+    
+    /* overflow: hidden - sakriva sadržaj koji prelazi granice */
+    overflow: hidden;
+}
+
+/* ===================== EFEKT LEBDENJA KUTIJE STATISTIKE ===================== */
+
+/* ::after je pseudo-element koji kreira sadržaj posle elementa */
+/* Koristi se za dekorativne efekte bez dodatnog HTML-a */
+.stat-box::after {
+    /* content: '' - prazan sadržaj */
+    content: '';
+    
+    /* position: absolute */
+    position: absolute;
+    
+    /* top: 0, left: 0, width: 100%, height: 2px - tanka linija na vrhu */
+    top: 0; left: 0; width: 100%; height: 2px;
+    
+    /* background: linear-gradient() - gradijent linije */
+    /* 90deg - horizontalni gradient */
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    
+    /* opacity: 0 - nevidljivo po default */
+    opacity: 0;
+    
+    /* transition: opacity 0.3s - animacija opacity-ja */
+    transition: opacity 0.3s;
+}
+
+/* .stat-box:hover::after - prikaži liniju na hover */
+.stat-box:hover::after { opacity: 1; }
+
+.stat-box:hover {
+    /* border-color: rgba(212, 175, 55, 0.3) - zlatna ivica na hover */
+    border-color: rgba(212, 175, 55, 0.3);
+    
+    /* transform: translateY(-4px) - podizanje efekat */
+    transform: translateY(-4px);
+    
+    /* box-shadow - senka na hover */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================== OMOTAČ IKONICE STATISTIKE ===================== */
+
+.stat-icon-wrap {
+    /* width: 54px, height: 54px */
+    width: 54px;
+    height: 54px;
+    
+    /* border-radius: var(--radius-lg) */
+    border-radius: var(--radius-lg);
+    
+    /* display: flex */
+    display: flex;
+    
+    /* align-items: center, justify-content: center */
+    align-items: center;
+    justify-content: center;
+    
+    /* font-size: 1.5rem - veličina ikonice */
+    font-size: 1.5rem;
+    
+    /* flex-shrink: 0 - ne skuplja se */
+    /* Zašto? Da ikonica ne bi postala manja ako tekst zauzima više prostora */
+    flex-shrink: 0;
+}
+
+.stat-details { flex: 1; }
+
+/* ===================== NASLOV STATISTIKE ===================== */
+
+.stat-title {
+    /* color: var(--text-muted) */
+    color: var(--text-muted);
+    
+    /* font-size: 0.9rem */
+    font-size: 0.9rem;
+    
+    /* font-weight: 600 */
+    font-weight: 600;
+    
+    /* margin-bottom: 0.5rem */
+    margin-bottom: 0.5rem;
+}
+
+/* ===================== VREDNOST STATISTIKE (H3) ===================== */
+
+.stat-details h3 {
+    /* font-size: 2rem - veliki broj */
+    font-size: 2rem;
+    
+    /* font-weight: 800 */
+    font-weight: 800;
+    
+    /* margin-bottom: 0.5rem */
+    margin-bottom: 0.5rem;
+    
+    /* line-height: 1.1 - kompaktnija linija */
+    line-height: 1.1;
+    
+    /* letter-spacing: -0.02em */
+    letter-spacing: -0.02em;
+}
+
+/* ===================== TREND STATISTIKE ===================== */
+
+.stat-trend {
+    /* font-size: 0.8rem - mali font za trend */
+    font-size: 0.8rem;
+    
+    /* font-weight: 700 */
+    font-weight: 700;
+    
+    /* display: flex */
+    display: flex;
+    
+    /* align-items: center */
+    align-items: center;
+    
+    /* gap: 0.35rem */
+    gap: 0.35rem;
+    
+    /* padding: 0.25rem 0 */
+    padding: 0.25rem 0;
+}
+
+/* Modifikatori za trend boje */
+.stat-trend.positive { color: var(--success); } /* Pozitivan trend - zelena */
+.stat-trend.negative { color: var(--danger); } /* Negativan trend - crvena */
+.stat-trend.neutral { color: var(--text-muted); } /* Neutralan trend - siva */
+
+/* ===================== MREŽA SADRŽAJA ===================== */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+}
+
+.chart-section, .table-section {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.section-header h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.chart-filter {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.chart-filter option { background: var(--bg-panel); }
+
+.chart-container {
+    height: 350px;
+    width: 100%;
+}
+
+.view-all {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.view-all:hover { color: var(--gold-light); text-decoration: underline; }
+
+/* ===================== FILTERI TABELE ===================== */
+.table-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.filter-group {
+    display: flex;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.35rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    font-size: 0.875rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn.active {
+    background: var(--bg-panel);
+    color: var(--text-main);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ===================== PRETRAGA TABELE ===================== */
+.table-search {
+    position: relative;
+}
+
+.table-search i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.table-search input {
+    padding: 0.6rem 1.25rem 0.6rem 2.5rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-main);
+    font-size: 0.9rem;
+    width: 280px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.table-search input:focus { border-color: var(--gold); outline: none; background: rgba(255,255,255,0.02); }
+
+/* ===================== RESPONZIVNA TABELA ===================== */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* ===================== PRO TABELA ===================== */
+.pro-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.pro-table th {
+    text-align: left;
+    padding: 1.25rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border);
+}
+
+.pro-table td {
+    padding: 1.25rem 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    font-size: 0.95rem;
+}
+
+.pro-table tr:last-child td { border-bottom: none; }
+.pro-table tr { transition: var(--transition); }
+.pro-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+/* ===================== ĆELIJA KORISNIKA ===================== */
+.user-cell { display: flex; align-items: center; gap: 1rem; }
+.user-avatar { width: 40px; height: 40px; border-radius: 50%; background: rgba(59, 130, 246, 0.1); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 800; border: 1px solid rgba(59, 130, 246, 0.2); }
+.user-info strong { display: block; font-weight: 700; color: var(--text-main); font-size: 0.95rem; }
+.user-info span { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+
+/* ===================== ĆELIJA AUTOMOBILA ===================== */
+.car-cell { display: flex; align-items: center; gap: 1rem; }
+.car-img { width: 60px; height: 40px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border); }
+.car-info strong { display: block; font-weight: 700; font-size: 0.95rem; }
+
+.price-cell { font-weight: 800; color: var(--text-main); font-size: 1rem; }
+
+/* ===================== ZNAČKA STATUSA ===================== */
+.status-badge {
+    padding: 0.35rem 0.85rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.status-badge::before { content: ''; width: 8px; height: 8px; border-radius: 50%; }
+
+.status-active { background: rgba(16, 185, 129, 0.1); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.2); }
+.status-active::before { background: var(--success); }
+
+.status-done { background: rgba(59, 130, 246, 0.1); color: var(--primary); border: 1px solid rgba(59, 130, 246, 0.2); }
+.status-done::before { background: var(--primary); }
+
+.status-cancelled { background: rgba(239, 68, 68, 0.1); color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.2); }
+.status-cancelled::before { background: var(--danger); }
+
+/* ===================== MENI AKCIJA ===================== */
+.action-menu {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    width: 36px; height: 36px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+/* ===================== LEBDENJE DUGMETA AKCIJE ===================== */
+.action-btn:hover { background: rgba(255,255,255,0.08); color: var(--text-main); border-color: rgba(255,255,255,0.2); }
+.action-btn.delete:hover { background: rgba(239, 68, 68, 0.1); color: var(--danger); border-color: rgba(239, 68, 68, 0.3); }
+
+/* ===================== MODALNI PROZOR ===================== */
+
+.pro-modal {
+    /* position: fixed - fiksni pozicioniranje na ekranu */
+    position: fixed;
+    
+    /* top: 0; left: 0; right: 0; bottom: 0 - pokriva ceo ekran */
+    top: 0; left: 0; right: 0; bottom: 0;
+    
+    /* display: none - nevidljiv po default */
+    display: none;
+    
+    /* align-items: center - vertikalno centriranje */
+    align-items: center;
+    
+    /* justify-content: center - horizontalno centriranje */
+    justify-content: center;
+    
+    /* z-index: 1000 - najviši sloj (iznad svega) */
+    z-index: 1000;
+    
+    /* opacity: 0 - transparentan po default */
+    opacity: 0;
+    
+    /* transition - animacija opacity-ja */
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* .open klasa aktivira modal */
+.pro-modal.open { display: flex; opacity: 1; }
+
+/* ===================== POZADINA MODALNOG PROZORA ===================== */
+.modal-backdrop {
+    /* position: absolute - apsolutno pozicioniranje unutar modal-a */
+    position: absolute;
+    
+    /* top: 0; left: 0; right: 0; bottom: 0 - pokriva ceo modal */
+    top: 0; left: 0; right: 0; bottom: 0;
+    
+    /* background - tamna polu-transparentna pozadina */
+    background: rgba(15, 23, 42, 0.85);
+    
+    /* backdrop-filter: blur - blurira pozadinu */
+    backdrop-filter: blur(8px);
+    
+    /* -webkit-backdrop-filter - Safari verzija */
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* ===================== DIJALOG MODALNOG PROZORA ===================== */
+.modal-dialog {
+    /* position: relative */
+    position: relative;
+    
+    /* background - pozadina dialog-a */
+    background: var(--bg-panel);
+    
+    /* border - ivica */
+    border: 1px solid var(--border);
+    
+    /* border-radius - zaobljeni uglovi */
+    border-radius: var(--radius-xl);
+    
+    /* padding - unutrašnji razmak */
+    padding: 2.5rem;
+    
+    /* width: 100% - puna širina */
+    width: 100%;
+    
+    /* max-width: 440px - maksimalna širina */
+    max-width: 440px;
+    
+    /* text-align: center - centriranje teksta */
+    text-align: center;
+    
+    /* box-shadow - senka */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    
+    /* transform - početna pozicija za animaciju */
+    transform: scale(0.95) translateY(20px);
+    
+    /* transition - animacija transform-a */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Kada je modal otvoren, dialog se vraća na originalnu poziciju */
+.pro-modal.open .modal-dialog { transform: scale(1) translateY(0); }
+
+/* ===================== IKONICA MODALNOG PROZORA ===================== */
+.modal-icon {
+    /* width, height - dimenzije ikonice */
+    width: 72px; height: 72px;
+    
+    /* border-radius - kružni oblik */
+    border-radius: 50%;
+    
+    /* display: flex, align-items, justify-content - centriranje sadržaja */
+    display: flex; align-items: center; justify-content: center;
+    
+    /* font-size - veličina ikonice */
+    font-size: 2rem;
+    
+    /* margin - razmak */
+    margin: 0 auto 1.5rem;
+}
+
+/* .warning modifikator za upozorenja */
+.modal-icon.warning { background: rgba(239, 68, 68, 0.1); color: var(--danger); border: 4px solid rgba(239, 68, 68, 0.05); }
+
+/* ===================== MODAL DIALOG NASLOV I TEKST ===================== */
+.modal-dialog h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+.modal-dialog p { color: var(--text-muted); font-size: 1rem; margin-bottom: 2.5rem; line-height: 1.6; }
+
+/* ===================== FUTER MODALNOG PROZORA ===================== */
+.modal-footer { display: flex; gap: 1rem; }
+
+.modal-footer button {
+    /* flex: 1 - zauzima jednak prostor */
+    flex: 1;
+    
+    /* padding - unutrašnji razmak */
+    padding: 0.85rem;
+    
+    /* border-radius - zaobljeni uglovi */
+    border-radius: var(--radius-md);
+    
+    /* font-weight - debljina fonta */
+    font-weight: 700;
+    
+    /* font-size - veličina fonta */
+    font-size: 0.95rem;
+    
+    /* cursor: pointer */
+    cursor: pointer;
+    
+    /* transition */
+    transition: var(--transition);
+}
+
+/* ===================== PROZIRNO DUGME ===================== */
+.btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
+.btn-ghost:hover { background: rgba(255,255,255,0.05); }
+
+/* ===================== OPASNO DUGME ===================== */
+.btn-danger { background: var(--danger); border: none; color: #fff; }
+.btn-danger:hover { background: #dc2626; box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.3); transform: translateY(-1px); }
+
+/* ===================== MEDIJSKI UPITI ===================== */
+
+/* @media - responsive dizajn za različite veličine ekrana */
+/* max-width: 1200px - tableti i manji desktop-ovi */
+@media (max-width: 1200px) {
+    .stats-container { grid-template-columns: repeat(2, 1fr); } /* 2 kolone umesto 4 */
+}
+
+/* max-width: 768px - mobilni uređaji */
+@media (max-width: 768px) {
+    .sidebar { transform: translateX(-100%); } /* Sidebar se sakriva */
+    .main-wrapper { margin-left: 0; } /* Sadržaj zauzima punu širinu */
+    .toggle-sidebar { display: block; } /* Dugme za sidebar se prikazuje */
+    .stats-container { grid-template-columns: 1fr; } /* 1 kolona */
+    .login-illustration { display: none; } /* Ilustracija se sakriva */
+    .login-box { padding: 2.5rem; max-width: 100%; border-left: none; } /* Login box se širi */
+    .header-search { width: 200px; } /* Search se sužava */
+}
+
+/* ===================== ADMIN SEKCIJE ===================== */
+.admin-section {
+    /* opacity: 0 - nevidljiv po default */
+    opacity: 0;
+    
+    /* transition - animacija opacity-ja */
+    transition: opacity 0.3s ease;
+}
+
+/* .active klasa prikazuje sekciju */
+.admin-section.active {
+    opacity: 1;
+}
